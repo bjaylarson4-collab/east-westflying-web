@@ -1,8 +1,9 @@
 # Webserver-Einstellungen. Der Server übernimmt Änderungen hier automatisch.
-# Später: ":80" durch "east-westflying.de, www.east-westflying.de" ersetzen,
-# dann holt sich der Server das HTTPS-Zertifikat selbst.
+# Für jede Adresse, die hier mit Namen steht, holt sich der Server das
+# HTTPS-Zertifikat selbst (Let's Encrypt). Voraussetzung: Der DNS-Eintrag
+# der Adresse zeigt auf diesen Server.
 
-:80 {
+(seite) {
 	root * /srv/current
 	encode zstd gzip
 	header {
@@ -14,3 +15,20 @@
 	header @assets Cache-Control "public, max-age=604800"
 	file_server
 }
+
+# Testadresse, für Suchmaschinen gesperrt
+neu.east-westflying.de {
+	header X-Robots-Tag "noindex, nofollow"
+	import seite
+}
+
+# Direkter Aufruf über die IP-Adresse, für Suchmaschinen gesperrt
+:80 {
+	header X-Robots-Tag "noindex, nofollow"
+	import seite
+}
+
+# Später beim Umzug ergänzen:
+# east-westflying.de, www.east-westflying.de {
+# 	import seite
+# }
