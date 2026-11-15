@@ -52,7 +52,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .hdr { position: fixed; inset: 0 0 auto; z-index: 100; background: #023341BB; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); padding: 14px var(--pad); color: var(--cream); }
 .hdr__in { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.logo img { width: 56px; height: auto; border: 1px solid #F4EFE680; }
+.logo img { width: 44px; height: auto; filter: invert(1); }
 .logo span { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; line-height: 1.5; }
 .nav { display: none; align-items: center; gap: 24px; }
 .nav a { font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap; }
