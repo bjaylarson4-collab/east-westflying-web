@@ -31,3 +31,7 @@ python3 build.py preview   # Vorschau mit relativen Links in dist/preview
 1. Datei in `src/pages/` anlegen.
 2. In `build.py` unter `PAGES` eintragen (Adresse, Titel, Beschreibung).
 3. Links auf noch nicht umgezogene Seiten zeigen automatisch auf die bisherige Seite.
+
+## Server
+
+Hetzner Cloud, Falkenstein. Der Server holt sich alle zwei Minuten den neuesten Stand aus diesem Repository (`server/update.sh`), baut die Seite und schaltet sie live. Webserver-Einstellungen stehen in `server/Caddyfile` und werden ebenfalls automatisch übernommen. Die Ersteinrichtung des Servers steht in `server/cloud-init.yaml`.

@@ -1,0 +1,16 @@
+# Webserver-Einstellungen. Der Server übernimmt Änderungen hier automatisch.
+# Später: ":80" durch "east-westflying.de, www.east-westflying.de" ersetzen,
+# dann holt sich der Server das HTTPS-Zertifikat selbst.
+
+:80 {
+	root * /srv/current
+	encode zstd gzip
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+	@assets path /assets/*
+	header @assets Cache-Control "public, max-age=604800"
+	file_server
+}

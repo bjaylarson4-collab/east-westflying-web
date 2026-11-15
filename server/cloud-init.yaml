@@ -1,0 +1,68 @@
+#cloud-config
+# Ersteinrichtung des Webservers. Bei Hetzner beim Anlegen ins Feld "Cloud config" einfügen.
+package_update: true
+package_upgrade: true
+packages:
+  - docker.io
+  - docker-compose-v2
+  - git
+  - python3
+  - unattended-upgrades
+  - ufw
+write_files:
+  - path: /etc/apt/apt.conf.d/20auto-upgrades
+    content: |
+      APT::Periodic::Update-Package-Lists "1";
+      APT::Periodic::Unattended-Upgrade "1";
+  - path: /etc/apt/apt.conf.d/52ewf-reboot
+    content: |
+      Unattended-Upgrade::Automatic-Reboot "true";
+      Unattended-Upgrade::Automatic-Reboot-Time "04:00";
+  - path: /opt/ewf/compose.yaml
+    content: |
+      services:
+        web:
+          image: caddy:2
+          container_name: ewf-caddy
+          restart: unless-stopped
+          ports:
+            - "80:80"
+            - "443:443"
+          volumes:
+            - /opt/ewf/Caddyfile:/etc/caddy/Caddyfile:ro
+            - /opt/ewf/www:/srv:ro
+            - caddy_data:/data
+            - caddy_config:/config
+      volumes:
+        caddy_data:
+        caddy_config:
+  - path: /etc/systemd/system/ewf-update.service
+    content: |
+      [Unit]
+      Description=East-Westflying Webseite aktualisieren
+      After=network-online.target docker.service
+      [Service]
+      Type=oneshot
+      ExecStart=/bin/sh /opt/ewf/repo/server/update.sh
+  - path: /etc/systemd/system/ewf-update.timer
+    content: |
+      [Unit]
+      Description=East-Westflying Webseite alle zwei Minuten aktualisieren
+      [Timer]
+      OnBootSec=1min
+      OnUnitActiveSec=2min
+      [Install]
+      WantedBy=timers.target
+runcmd:
+  - ufw default deny incoming
+  - ufw allow 80/tcp
+  - ufw allow 443/tcp
+  - ufw --force enable
+  - mkdir -p /opt/ewf/www
+  - git clone --depth 1 https://github.com/bjaylarson4-collab/east-westflying-web.git /opt/ewf/repo
+  - cp /opt/ewf/repo/server/Caddyfile /opt/ewf/Caddyfile
+  - sh /opt/ewf/repo/server/update.sh
+  - systemctl enable --now docker
+  - docker compose -f /opt/ewf/compose.yaml up -d
+  - systemctl daemon-reload
+  - systemctl enable --now ewf-update.timer
