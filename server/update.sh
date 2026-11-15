@@ -18,10 +18,16 @@ printf "%s\n%s\n" "$NEW" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > "$WWW/r-$NEW/version
 ln -sfn "r-$NEW" "$WWW/current.tmp"
 mv -T "$WWW/current.tmp" "$WWW/current"
 
-# Webserver-Einstellungen übernehmen, falls geändert
+# Webserver-Einstellungen übernehmen, falls geändert, aber nur wenn sie fehlerfrei sind
 if ! cmp -s server/Caddyfile /opt/ewf/Caddyfile; then
-  cp server/Caddyfile /opt/ewf/Caddyfile
-  docker exec ewf-caddy caddy reload --config /etc/caddy/Caddyfile >/dev/null 2>&1 || docker restart ewf-caddy >/dev/null
+  if docker run --rm -v "$REPO/server/Caddyfile:/etc/caddy/Caddyfile:ro" caddy:2 \
+       caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile >/opt/ewf/caddy-check.log 2>&1; then
+    cp server/Caddyfile /opt/ewf/Caddyfile
+    docker restart ewf-caddy >/dev/null
+    echo "ok $(date -u +%FT%TZ)" > "$WWW/r-$NEW/caddy-check.txt"
+  else
+    { echo "FEHLER $(date -u +%FT%TZ) - bisherige Einstellungen bleiben aktiv"; tail -5 /opt/ewf/caddy-check.log; } > "$WWW/r-$NEW/caddy-check.txt"
+  fi
 fi
 
 # Nur die letzten drei Stände behalten
