@@ -1,0 +1,38 @@
+name: Bilder holen
+
+# Läuft, wenn tools/bilder.txt geändert wird, oder per Hand unter "Actions".
+on:
+  push:
+    paths: ["tools/bilder.txt", ".github/workflows/bilder.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bilder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bilder laden und verkleinern
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick >/dev/null
+          mkdir -p assets/img /tmp/raw
+          grep -v '^\s*#' tools/bilder.txt | grep -v '^\s*$' | while IFS='|' read -r ziel quelle breite; do
+            ziel=$(echo "$ziel" | xargs); quelle=$(echo "$quelle" | xargs); breite=$(echo "$breite" | xargs)
+            [ -f "assets/img/$ziel" ] && continue
+            echo "→ $ziel"
+            curl -fsSL -A "Mozilla/5.0" "$quelle" -o "/tmp/raw/$ziel.src"
+            case "$ziel" in
+              *.png) convert "/tmp/raw/$ziel.src" -resize "${breite}x>" -strip "assets/img/$ziel" ;;
+              *)     convert "/tmp/raw/$ziel.src" -background white -flatten -resize "${breite}x>" -strip -interlace Plane -quality 82 "assets/img/$ziel" ;;
+            esac
+          done
+          ls -la assets/img
+      - name: Hochladen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/img
+          git diff --cached --quiet || git commit -m "Bilder aus tools/bilder.txt geholt"
+          git push

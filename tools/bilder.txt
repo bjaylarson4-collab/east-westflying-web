@@ -1,0 +1,13 @@
+# Originalbilder von der bisherigen Seite.
+# Format: Zieldatei | Quelle | maximale Breite
+# Neue Zeile anlegen und hochladen: GitHub holt das Bild automatisch und legt es in assets/img ab.
+hero.jpg | https://east-westflying.de/wp-content/uploads/2026/10/DSC06697-scaled-1-1.jpg | 1920
+briefing.jpg | https://east-westflying.de/wp-content/uploads/2026/10/DSC08309-scaled-1-1.jpg | 1400
+rundflug.jpg | https://east-westflying.de/wp-content/uploads/2026/10/DSC06690-1-scaled-1-1.jpg | 1920
+toskana-landschaft.jpg | https://east-westflying.de/wp-content/uploads/2026/10/IMG20230407083002-3.jpg | 1400
+toskana-morgen.jpg | https://east-westflying.de/wp-content/uploads/2024/06/IMG20240428064820.jpg | 1000
+helm.jpg | https://east-westflying.de/wp-content/uploads/2021/03/casco-30-1.jpg | 800
+paramotor.jpg | https://east-westflying.de/wp-content/uploads/2026/10/S-MavII-PRO-bag.png | 800
+farben.jpg | https://east-westflying.de/wp-content/uploads/2022/03/Farben.jpg | 712
+podcast-cover.jpg | https://is1-ssl.mzstatic.com/image/thumb/Podcasts126/v4/e7/7c/c0/e77cc032-2b12-398a-0bba-e0a6abb00bb1/mza_16611154497758691722.png/600x600bb.jpg | 600
+logo.png | https://east-westflying.de/wp-content/uploads/2026/10/cropped-cropped-east-west-flying-PNG-web_transparent-350px-2.png | 267
