@@ -11,3 +11,4 @@ paramotor.jpg | https://east-westflying.de/wp-content/uploads/2026/10/S-MavII-PR
 farben.jpg | https://east-westflying.de/wp-content/uploads/2022/03/Farben.jpg | 712
 podcast-cover.jpg | https://is1-ssl.mzstatic.com/image/thumb/Podcasts126/v4/e7/7c/c0/e77cc032-2b12-398a-0bba-e0a6abb00bb1/mza_16611154497758691722.png/600x600bb.jpg | 600
 logo.png | https://east-westflying.de/wp-content/uploads/2026/10/cropped-cropped-east-west-flying-PNG-web_transparent-350px-2.png | 267
+video-toskana.jpg | https://i.ytimg.com/vi/RJWTA7hSQIc/maxresdefault.jpg | 1280
