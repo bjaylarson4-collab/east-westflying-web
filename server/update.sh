@@ -14,6 +14,7 @@ git reset -q --hard "$NEW"
 python3 build.py live >/dev/null
 rm -rf "$WWW/r-$NEW"
 cp -a dist/live "$WWW/r-$NEW"
+printf "%s\n%s\n" "$NEW" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > "$WWW/r-$NEW/version.txt"
 ln -sfn "r-$NEW" "$WWW/current.tmp"
 mv -T "$WWW/current.tmp" "$WWW/current"
 
