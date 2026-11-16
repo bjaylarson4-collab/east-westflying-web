@@ -14,7 +14,7 @@ SITE = "https://east-westflying.de"
 
 # Besucherstatistik (Umami, ohne Cookies). Die ID steht in Umami unter
 # Einstellungen > Websites. Leer = Statistik aus.
-UMAMI_ID = ""
+UMAMI_ID = "da9a7a2d-8a28-4c75-b0b6-f7f44137fe72"
 UMAMI_DOMAINS = "east-westflying.de,www.east-westflying.de,neu.east-westflying.de"
 
 # Klicks, die als Anfrage gezählt werden (Name des Ereignisses in Umami)
