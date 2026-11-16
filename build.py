@@ -6,7 +6,7 @@
 
 Eine neue Seite: Datei in src/pages anlegen und unten in PAGES eintragen.
 """
-import html, json, re, shutil, sys
+import hashlib, html, json, re, shutil, sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -162,6 +162,10 @@ def build(mode):
         }
         for k, v in rep.items():
             doc = doc.replace(k, v)
+        # Versionsnummer an CSS/JS hängen, damit Browser nach Änderungen nicht die alte Fassung nutzen
+        for f in ("css/site.css", "js/site.js"):
+            h = hashlib.md5((ROOT / "assets" / f).read_bytes()).hexdigest()[:8]
+            doc = doc.replace(f + '"', f + "?v=" + h + '"')
         doc = re.sub(r"\{\{X:([\w-]+)\}\}", lambda m: url(m.group(1)), doc)
         old_links = sorted(set(re.findall(r'href="(?:https://east-westflying\.de)?/(?!assets/)([\w-]+)/"', doc)) - MIGRATED)
         if old_links:
