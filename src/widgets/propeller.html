@@ -1,0 +1,75 @@
+<div class="psim" id="psim">
+<style>
+.psim{--navy:#023341;--coral:#F25041;--sand:#ECE5D9;color:var(--navy);font-family:"EWF Manrope",Manrope,Arial,sans-serif}
+.psim .scr{border:2px solid var(--navy);background:#F4EFE6}
+.psim svg{display:block;width:100%;height:auto}
+.psim .btns{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.psim .btns button{font-family:"EWF Mono","JetBrains Mono",monospace;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;text-align:left;padding:12px;border:2px solid var(--navy);background:transparent;color:var(--navy);cursor:pointer;line-height:1.35}
+.psim .btns button b{display:block;font-size:20px;font-family:"EWF Anton",Anton,sans-serif;font-weight:400;letter-spacing:0;margin-bottom:2px}
+.psim .btns button span{display:block;opacity:.7;text-transform:none;letter-spacing:0}
+.psim .btns button.on{background:var(--navy);color:#fff}
+.psim .pTxt{margin-top:14px}
+.psim .pP{border-left:4px solid var(--coral);background:var(--sand);padding:18px 22px;margin-bottom:12px}
+.psim.js .pP{display:none}.psim.js .pP.on{display:block}
+.psim .pP h3{font-family:"EWF Anton",Anton,sans-serif;font-weight:400;font-size:26px;line-height:1.15;margin:0 0 10px;color:var(--navy)}
+.psim .pP h3 span{display:inline-block;background:var(--navy);color:#fff;font-size:16px;padding:2px 8px;margin-right:10px;vertical-align:4px}
+.psim .pP p{font-size:16px;line-height:1.65;margin:0 0 10px}.psim .pP p:last-child{margin-bottom:0}
+.psim .note{font-size:12px;opacity:.7;margin-top:8px}
+@media(max-width:700px){.psim .btns{grid-template-columns:1fr}}
+</style>
+<div class="scr"><svg aria-label="Animierter Propellervergleich von vorn" viewbox="0 0 640 420">
+<g fill="#023341" font-family="JetBrains Mono,monospace" font-size="12">
+<text font-size="13" font-weight="700" id="psTitle" x="16" y="26"></text>
+<text opacity=".6" text-anchor="end" x="624" y="26">Blick von vorn, gleiche Drehzahl</text>
+<text font-weight="700" id="psL" text-anchor="middle" x="170" y="48"></text>
+<text font-weight="700" id="psR" text-anchor="middle" x="470" y="48"></text>
+<text id="psL2" text-anchor="middle" x="170" y="352"></text>
+<text id="psR2" text-anchor="middle" x="470" y="352"></text>
+<text opacity=".7" x="16" y="378">Druckimpulse am Rahmen</text>
+</g>
+<g id="psPropL"></g><g id="psPropR"></g>
+<path fill="none" id="psStripL" stroke="#023341" stroke-width="2"></path>
+<path fill="none" id="psStripR" stroke="#F25041" stroke-width="2"></path>
+<line opacity=".25" stroke="#023341" x1="60" x2="280" y1="410" y2="410"></line><line opacity=".25" stroke="#023341" x1="360" x2="580" y1="410" y2="410"></line>
+</svg></div>
+<div class="btns" id="psBtns"></div>
+<div class="pTxt">
+<section class="pP" id="zwei-oder-drei-blatt"><h3><span>1</span>2-Blatt oder 3-Blatt</h3><p>Ein 2-Blatt-Propeller erzeugt pro Umdrehung zwei Druckimpulse, ein 3-Blatt-Propeller drei kleinere. Bei gleichem Schub läuft der 3-Blatt dadurch ruhiger und ist meist leiser. Der 2-Blatt ist bei gleichem Durchmesser dafür etwas effizienter, weil sich die Blätter weniger gegenseitig stören.</p><p>In der Praxis haben beide meist unterschiedliche Einsatzbereiche. Der 2-Blatt ist der Standard für die meisten Motoren. Einen 3-Blatt kann man mit etwas flacherer Steigung (Pitch) wählen, dann dreht der Motor schneller hoch. Das ist interessant, wenn du schnell Drehzahl brauchst, zum Beispiel beim Pylonracing. Der Preis dafür: Durch den flacheren Pitch liegt die Enddrehzahl etwas höher, und der Verbrauch kann steigen.</p><p>Welche Variante für dich passt, hängt also von Motor, Untersetzung, Käfig und deinem Einsatz ab, nicht von einer Glaubensfrage.</p></section>
+<section class="pP" id="durchmesser"><h3><span>2</span>Großer oder kleiner Durchmesser</h3><p>Ein größerer Propeller bewegt mehr Luft und setzt die Motorleistung grundsätzlich effizienter in Standschub um. Bei gleicher Drehzahl sind seine Blattspitzen aber deutlich schneller unterwegs, das macht ihn lauter. Außerdem braucht er einen größeren Käfig und mehr Platz am Rahmen.</p><p>Die Grenze setzt deshalb fast immer die Konstruktion: Der Propeller muss mit genug Abstand in den Käfig passen und zur Untersetzung deines Motors passen. Größer ist nur dann besser, wenn das ganze System dafür ausgelegt ist.</p></section>
+<section class="pP" id="gleicher-schub"><h3><span>3</span>Gleicher Schub, kleinerer Käfig</h3><p>Ein 3-Blatt-Propeller kann ähnlichen Schub mit einem kleineren Durchmesser erzeugen als ein 2-Blatt. Das senkt die Geschwindigkeit an den Blattspitzen und damit oft auch das Geräusch, und der Propeller passt in einen kompakteren Käfig.</p><p>Dafür ist er bei gleichem Durchmesser etwas weniger effizient. Es gibt also keinen „besten“ Propeller, sondern nur den passenden für deinen Motor und deinen Einsatz: Fußstart, Trike, Gewicht und Flugstil.</p></section>
+</div>
+<p class="note">Schematische Darstellung, nicht maßstabsgetreu, Drehzahl stark verlangsamt. Welcher Propeller an deinen Motor darf, legen Motor- und Propellerhersteller fest.</p>
+<script>
+(function(){
+var root=document.getElementById('psim'); if(!root||root.dataset.init)return; root.dataset.init=1; root.classList.add('js');
+var $=function(id){return document.getElementById(id)}, PN=root.querySelectorAll('.pP');
+var M=[
+{n:'2-Blatt oder 3-Blatt',d:'Druckimpulse und Laufruhe',L:{b:2,r:105},R:{b:3,r:105},lt:['2-Blatt','gleicher Durchmesser'],rt:['3-Blatt','gleicher Durchmesser']},
+{n:'Durchmesser',d:'Groß oder klein',L:{b:2,r:118},R:{b:2,r:82},lt:['groß','schnellere Blattspitzen'],rt:['klein','langsamere Blattspitzen']},
+{n:'Gleicher Schub',d:'3-Blatt im kleineren Käfig',L:{b:2,r:115},R:{b:3,r:94},lt:['2-Blatt, groß','großer Käfig'],rt:['3-Blatt, kleiner','kompakter Käfig']}
+];
+var cur=0,t0=0,raf=0,REV=2.4;
+function blade(cx,cy,r,a){ var c=Math.cos(a),s=Math.sin(a),px=-s,py=c,w=r*.11; function P(u,v){return (cx+c*u+px*v).toFixed(1)+' '+(cy+s*u+py*v).toFixed(1)}
+ return 'M'+P(r*.12,-w*.5)+' Q'+P(r*.5,-w*1.3)+' '+P(r*.97,-w*.35)+' Q'+P(r*1.01,0)+' '+P(r*.97,w*.3)+' Q'+P(r*.5,w*.6)+' '+P(r*.12,w*.5)+'Z'; }
+function prop(g,cx,cy,o,t,col){ var a0=t/REV*2*Math.PI, h='<circle cx="'+cx+'" cy="'+cy+'" r="'+(o.r+14)+'" fill="none" stroke="#023341" stroke-width="2.5"/><circle cx="'+cx+'" cy="'+cy+'" r="'+(o.r+8)+'" fill="none" stroke="#023341" stroke-width="1" stroke-dasharray="3 5" opacity=".5"/>';
+ for(var i=0;i<o.b;i++){ var a=a0+i*2*Math.PI/o.b; h+='<path d="'+blade(cx,cy,o.r,a)+'" fill="'+col+'" opacity=".9"/>'; }
+ var tip=a0-Math.PI/2; h+='<circle cx="'+cx+'" cy="'+cy+'" r="9" fill="#023341"/>';
+ for(var j=0;j<o.b;j++){ var ta=a0+j*2*Math.PI/o.b; var tx=cx+Math.cos(ta)*o.r, ty=cy+Math.sin(ta)*o.r; var L=o.r*.55; h+='<line x1="'+tx.toFixed(1)+'" y1="'+ty.toFixed(1)+'" x2="'+(tx-Math.sin(ta)*L*.35).toFixed(1)+'" y2="'+(ty+Math.cos(ta)*L*.35).toFixed(1)+'" stroke="#F25041" stroke-width="2" opacity="'+(cur===1?.9:0)+'"/>'; }
+ var hit=0; for(var k=0;k<o.b;k++){ var d=((a0+k*2*Math.PI/o.b+Math.PI/2)%(2*Math.PI)+2*Math.PI)%(2*Math.PI); if(d<.35||d>2*Math.PI-.35) hit=1; }
+ h+='<rect x="'+(cx-16)+'" y="'+(cy-o.r-21)+'" width="32" height="5" fill="'+(hit?'#F25041':'#D8D4C9')+'"/>';
+ g.innerHTML=h; }
+function strip(el,x0,o,t){ var W=220,T=3*REV,amp=26*2/o.b*(o.r/105),d=''; for(var i=0;i<=110;i++){ var tt=t-T+i/110*T, ph=(tt/REV*o.b)%1; if(ph<0)ph+=1; var y=410-amp*Math.exp(-Math.pow((ph-.5)/.07,2)); d+=(i?'L':'M')+(x0+i*2).toFixed(1)+' '+y.toFixed(1); } el.setAttribute('d',d); }
+function draw(t){ var m=M[cur]; prop($('psPropL'),170,200,m.L,t,'#023341'); prop($('psPropR'),470,200,m.R,t*1,'#F25041');
+ strip($('psStripL'),60,m.L,t); strip($('psStripR'),360,m.R,t);
+ $('psTitle').textContent=m.n.toUpperCase(); $('psL').textContent=m.lt[0]; $('psR').textContent=m.rt[0]; $('psL2').textContent=m.lt[1]; $('psR2').textContent=m.rt[1]; }
+function loop(now){ if(!t0)t0=now; draw((now-t0)/1000); raf=requestAnimationFrame(loop); }
+function play(i,u){ cur=i; [].forEach.call(PN,function(p,j){p.classList.toggle('on',j===i)}); [].forEach.call(document.querySelectorAll('#psBtns button'),function(b,j){b.classList.toggle('on',j===i)}); if(u&&history.replaceState) history.replaceState(null,'','#'+PN[i].id); cancelAnimationFrame(raf); if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){ draw(.3); return; } raf=requestAnimationFrame(loop); }
+$('psBtns').innerHTML=M.map(function(m,i){return '<button type="button"><b>'+(i+1)+'</b>'+m.n+'<span>'+m.d+'</span></button>'}).join('');
+[].forEach.call(document.querySelectorAll('#psBtns button'),function(b,i){b.addEventListener('click',function(){play(i,1)})});
+var hs=location.hash.slice(1); [].forEach.call(PN,function(p,j){ if(p.id===hs) cur=j; });
+window.addEventListener('hashchange',function(){ var h=location.hash.slice(1); [].forEach.call(PN,function(p,j){ if(p.id===h){ play(j); root.scrollIntoView({behavior:'smooth',block:'start'}); } }); });
+window.__psDraw=function(i,t){cancelAnimationFrame(raf);cur=i;draw(t)};
+play(cur); if('IntersectionObserver' in window){ cancelAnimationFrame(raf); draw(0); var io=new IntersectionObserver(function(e){ if(e[0].isIntersecting){ play(cur); io.disconnect(); } }); io.observe(root); }
+})();
+</script>
+</div>

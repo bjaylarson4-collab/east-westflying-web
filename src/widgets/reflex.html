@@ -1,0 +1,136 @@
+<div class="rsim" id="rsim">
+<style>
+.rsim{--navy:#023341;--coral:#F25041;--sand:#ECE5D9;max-width:none;color:var(--navy);font-family:"EWF Manrope",Manrope,Arial,sans-serif}
+.rsim .scr{position:relative;border:2px solid var(--navy);background:#F4EFE6}
+.rsim svg{display:block;width:100%;height:auto}
+.rsim .cap{padding:12px 16px;background:var(--navy);color:#fff;font-size:15px;line-height:1.4;min-height:46px}
+.rsim .bar{height:3px;background:var(--coral);width:0}
+.rsim .btns{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.rsim .btns button{font-family:"EWF Mono","JetBrains Mono",monospace;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;text-align:left;padding:12px;border:2px solid var(--navy);background:transparent;color:var(--navy);cursor:pointer;line-height:1.35}
+.rsim .btns button b{display:block;font-size:20px;font-family:"EWF Anton",Anton,sans-serif;font-weight:400;letter-spacing:0;margin-bottom:2px}
+.rsim .btns button.on{background:var(--navy);color:#fff}
+.rsim .rsTxt{margin-top:14px}
+.rsim .rsP{border-left:4px solid var(--coral);background:var(--sand);padding:18px 22px;margin-bottom:12px}
+.rsim.js .rsP{display:none}.rsim.js .rsP.on{display:block}
+.rsim .rsP h3{font-family:"EWF Anton",Anton,sans-serif;font-weight:400;font-size:26px;line-height:1.15;margin:0 0 10px;color:var(--navy)}
+.rsim .rsP h3 span{display:inline-block;background:var(--navy);color:#fff;font-size:16px;padding:2px 8px;margin-right:10px;vertical-align:4px}
+.rsim .rsP p{font-size:16px;line-height:1.65;margin:0 0 10px}.rsim .rsP p:last-child{margin-bottom:0}
+@media(max-width:700px){.rsim .btns{grid-template-columns:repeat(2,1fr)}}
+.rsim .note{font-size:12px;opacity:.7;margin-top:8px}
+</style>
+<div class="scr"><svg aria-label="Animierter Profilquerschnitt eines Motorschirms" viewbox="0 0 640 400">
+<defs><marker id="rsArr" markerheight="6" markerwidth="6" orient="auto-start-reverse" refx="5" refy="5" viewbox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#F25041"></path></marker></defs>
+<g fill="none" id="rsFlow" opacity=".25" stroke="#023341" stroke-width="1"></g>
+<g fill="none" id="rsSep" stroke="#F25041" stroke-width="1.5"></g>
+<path d="" fill="none" id="rsGust" opacity="0" stroke="#023341" stroke-linecap="round" stroke-width="3"></path>
+<g id="rsAll"><g id="rsLines"></g>
+<path d="" fill="#D8D4C9" id="rsWing" stroke="#023341" stroke-linejoin="round" stroke-width="2.5"></path>
+<g id="rsCP"><line id="rsCPl" marker-end="url(#rsArr)" stroke="#F25041" stroke-width="3"></line><circle fill="#F25041" id="rsCPc" r="7"></circle><text fill="#F25041" font-family="JetBrains Mono,monospace" font-size="12" id="rsCPt" text-anchor="middle">Druckpunkt</text></g>
+<path d="" fill="#F25041" id="rsArea" opacity=".38"></path><text fill="#023341" font-family="JetBrains Mono,monospace" font-size="12" id="rsNeu" opacity="0">hinten: neutral</text>
+<g id="rsPilot"><circle fill="#023341" id="rsHead" r="7"></circle><line id="rsBody" stroke="#023341" stroke-linecap="round" stroke-width="5"></line></g></g>
+<g fill="#023341" font-family="JetBrains Mono,monospace" font-size="11" id="rsMeter" opacity="0">
+<text text-anchor="end" x="470" y="49">Tempo</text><rect fill="none" height="10" stroke="#023341" width="148" x="476" y="40"></rect><rect fill="#023341" height="10" id="rsSpd" width="0" x="476" y="40"></rect>
+<text text-anchor="end" x="470" y="67">Leistungsbedarf</text><rect fill="none" height="10" stroke="#023341" width="148" x="476" y="58"></rect><rect fill="#F25041" height="10" id="rsPwr" width="0" x="476" y="58"></rect>
+<rect fill="#F25041" height="10" opacity=".5" width="10" x="476" y="77"></rect><text x="492" y="86">trägt (Auftrieb)</text></g>
+<g fill="#023341" font-family="JetBrains Mono,monospace" font-size="12">
+<text font-size="13" font-weight="700" id="rsTitle" x="16" y="26"></text>
+<text id="rsG1" x="16" y="46"></text><text id="rsG2" x="16" y="62"></text><text id="rsG3" x="16" y="78"></text>
+<text opacity=".6" text-anchor="end" x="624" y="26">Wind / Fahrtrichtung →</text>
+</g>
+</svg><div class="cap" id="rsCap"></div><div class="bar" id="rsBar"></div></div>
+<div class="btns" id="rsBtns"></div>
+<div class="rsTxt" id="rsTxt"><section class="rsP" data-i="0" id="trimmer-zu"><h3><span>1</span>Trimmer zu: langsam, viel Auftrieb, normal bremsen</h3><p>Mit geschlossenen Trimmern ist das Profil am stärksten gewölbt. Fast die ganze Fläche trägt mit, der Schirm erzeugt viel Auftrieb und fliegt am langsamsten, mit dem geringsten Sinken. Der Druckpunkt liegt etwa in der Mitte des Profils, die Last verteilt sich auf alle Leinenebenen.</p><p>In dieser Stellung verhält sich ein Reflexschirm ähnlich wie ein klassischer Gleitschirm: Bremsen ist hier normal und ungefährlich. Das ist die Einstellung für Start, Landung und Thermik.</p></section><section class="rsP" data-i="1" id="trimmer-offen"><h3><span>2</span>Trimmer offen: schnell, stabil und effizienter</h3><p>Öffnest du die Trimmer, biegt sich die Hinterkante nach oben, es entsteht der typische S-Schlag. Der Druckpunkt wandert nach vorn, A- und B-Ebene tragen fast die ganze Last, C und D werden entlastet.</p><p>Im Vollreflex erzeugt nur noch der vordere Teil des Profils Auftrieb. Der hintere Teil wird praktisch nicht mehr als Auftriebsfläche genutzt, erzeugt aber auch kaum Widerstand. Darum muss der Motor zwar mehr Leistung bringen, aber nicht im Verhältnis zum Geschwindigkeitszuwachs: Der Schirm wird schneller und dabei effizienter.</p><p>Trifft eine Böe die Vorderkante, nickt der Schirm kurz und richtet sich von selbst wieder auf. Die Bremsen bleiben dabei ganz losgelassen, gesteuert wird über TST oder TEA.</p></section><section class="rsP" data-i="2" id="trimmer-speedbar"><h3><span>3</span>Trimmer offen plus Speedbar: der kleinste Anstellwinkel</h3><p>Bei manchen Reflexschirmen kannst du bei offenen Trimmern zusätzlich die Speedbar treten. Die Trimmer wirken hinten und verstärken den Reflex, die Speedbar verkürzt vorne die Leinen und verkleinert den Anstellwinkel noch einmal. Das ist die schnellste Stellung des Schirms.</p><p>Der Druckpunkt liegt dabei weit vorn, die Last fast vollständig auf A und B. Ob und wie weit du bei offenen Trimmern zusätzlich beschleunigen darfst, legt der Hersteller fest. Schau dafür ins Handbuch deines Schirms.</p></section><section class="rsP" data-i="3" id="power-attack-pa"><h3><span>4</span>Gekoppeltes System: die Speedbar öffnet die Trimmer (PA)</h3><p>Es gibt Schirme, bei denen Speedbar und Trimmer gekoppelt sind. Bei Dudek heißt das PA – Power Attack System. Trittst du die Speedbar, öffnen sich automatisch die Trimmer, und gleichzeitig wird über die Speedbar der Anstellwinkel verkleinert. Ein Fuß steuert beide Wirkungen, du musst also nicht zusätzlich an die Trimmer greifen.</p><p>Wie das System bei deinem Modell genau arbeitet, steht im Handbuch.</p></section><section class="rsP" data-i="4" id="scherwind-thermik"><h3><span>5</span>Scherwind und Thermik: Reflex bleibt stabil, aber übertreib es nicht</h3><p>Im Vollreflexmodus ist der Schirm sehr unempfindlich gegenüber bewegter Luft wie Thermik oder Scherwinden. Trifft ihn eine Scherung, wird er versetzt und ändert Lage und Richtung, als Fläche bleibt er aber komplett gleich. Ein klassischer Schirm ist in derselben Situation klappgefährdet, vor allem beschleunigt mit entlasteter Vorderkante.</p><p>Genau hier liegt die Gefahr: Der Reflexschirm fühlt sich so stabil an, dass Piloten es übertreiben, mit zu viel Wind, zu kräftiger Thermik oder zu tief. Turbulenz spürst du trotzdem als Schläge, und zwar umso härter, je schneller du fliegst. Reflex macht die Luft nicht ruhiger, und auch ein Reflexschirm hat Grenzen.</p></section><section class="rsP" data-i="5" id="trimmer-offen-bremsen"><h3><span>6</span>Trimmer offen und bremsen: der typische Fehler</h3><p>Der häufigste Fehler, vor allem bei Piloten mit Freiflug-Erfahrung: bei offenen Trimmern an den Hauptbremsen ziehen. Schon leichter Bremszug zieht die Hinterkante nach unten, der Reflex ist weg. Der Druckpunkt wandert nach hinten, die Strömung wird gestört. In ungünstigen Fällen kann so bei einer Böe die Vorderkante einklappen.</p><p>Deshalb: Im schnellen Flug bleiben die Bremsen ganz losgelassen. Gesteuert wird über die Stabilo-Griffe (TST) oder TEA-Leinen.</p></section><section class="rsP" data-i="6" id="klassisch-beschleunigt"><h3><span>7</span>Zum Vergleich: der klassische Schirm im beschleunigten Flug</h3><p>Beim klassischen Gleitschirmprofil ist die Lastverteilung umgekehrt: Mit steigender Geschwindigkeit werden A- und B-Ebene entlastet, C und D tragen mehr. Im Extremfall reicht dann eine Böe für einen Frontklapper.</p><p>Genau das verhindert der Reflex: Weil beim Reflexschirm mit offenen Trimmern A und B die Last tragen, ist er im schnellen Flug sehr widerstandsfähig gegen Klapper durch Turbulenz.</p></section><section class="rsP" data-i="7" id="steigende-luft"><h3><span>8</span>Steigende Luft: auch Reflex hat Grenzen</h3><p>Kräftig steigende Luft vergrößert den Anstellwinkel schlagartig. Fliegst du dann langsam mit geschlossenen Trimmern, kann die Strömung auf der Oberseite abreißen. So kann auch ein Reflexschirm in einen Sackflug geraten.</p><p>In dieser Situation verhält er sich kaum anders als ein klassischer Schirm. Die Stabilität des Reflexprofils gilt für den schnellen Flug, nicht für jede Luftlage.</p></section></div>
+<p class="note">Schematische Darstellung, nur zur Information und nicht maßstabsgetreu. Maßgeblich ist immer das Handbuch deines Schirms. Bei Fragen zu deinem Schirm: Flugschule oder Importeur fragen. Anwendung auf eigene Verantwortung.</p>
+<script>
+(function(){
+var root=document.getElementById('rsim'); if(!root||root.dataset.init)return; root.dataset.init=1; root.classList.add('js'); var PN=root.querySelectorAll('.rsP');
+var $=function(id){return document.getElementById(id)};
+var C=330, OX=150, OY=150, R={x:OX+0.36*C,y:OY+165};
+var ATT=[0.05,0.27,0.52,0.8], LET=['A','B','C','D'];
+function k(arr,t){ if(typeof arr==='number')return arr; if(t<=arr[0][0])return arr[0][1]; for(var i=1;i<arr.length;i++){ if(t<=arr[i][0]){var a=arr[i-1],b=arr[i],u=(t-a[0])/(b[0]-a[0]); u=u*u*(3-2*u); return a[1]+(b[1]-a[1])*u;} } return arr[arr.length-1][1]; }
+var S=[
+{n:'Trimmer zu',d:'Langsam fliegen, Start, Landung',T:12,
+ tail:[[0,-.15],[8,-.15],[9,-.45],[11,-.45],[12,-.15]], cp:[[0,.42],[8,.42],[9.5,.47],[12,.42]], pitch:0, fold:0, sep:0, flow:.5, area:1, spd:.35, pwr:.4,
+ load:[[[0,.3]],[[0,.32]],[[0,.24]],[[0,.18]]], gust:[],
+ g:['Trimmer: ZU','Bremse: [8,0],[9,30],[11,30],[12,0]','Beschleuniger: AUS'],
+ cap:[[0,'Trimmer zu: Das Profil ist stärker gewölbt und erzeugt mehr Auftrieb. Fast die ganze Fläche trägt mit.'],[4,'Der Druckpunkt liegt etwa in der Mitte. Die Last verteilt sich auf alle Leinenebenen.'],[8,'Bremsen ist hier ganz normal und ungefährlich. Diese Einstellung nutzt du für Start, Landung und Thermik.']]},
+{n:'Trimmer offen',d:'Reflex wirkt, effizienter',T:15,
+ tail:[[0,-.15],[3,1],[15,1]], cp:[[0,.42],[3.5,.25],[15,.25]], pitch:[[0,0],[9,0],[9.7,-9],[10.5,5],[11.3,-2.5],[12.1,1],[12.8,0]], fold:0, sep:0, flow:[[0,.5],[3,1.4],[15,1.4]],
+ area:[[0,1],[3.5,.55],[15,.55]], spd:[[0,.35],[3.5,.8],[15,.8]], pwr:[[0,.4],[3.5,.58],[15,.58]],
+ load:[[[0,.3],[3.5,.55]],[[0,.32],[3.5,.42]],[[0,.24],[3.5,.08]],[[0,.18],[3.5,.03]]], gust:[8.7],
+ g:['Trimmer: [0,0],[3,1]','Bremse: 0 %','Beschleuniger: AUS'],
+ cap:[[0,'Trimmer öffnen: Die Hinterkante biegt sich nach oben, es entsteht der S-Schlag.'],[3.5,'Nur noch der vordere Teil erzeugt Auftrieb. Der hintere Teil ist neutral: kein Auftrieb, aber auch kaum Widerstand.'],[6,'Der Motor muss mehr leisten, aber deutlich weniger, als die Geschwindigkeit zunimmt. Der Schirm wird effizienter.'],[8.7,'Eine Böe trifft die Vorderkante: Der Schirm nickt kurz und richtet sich von selbst wieder auf.'],[12.8,'Schnell und stabil. Die Bremsen bleiben dabei ganz losgelassen.']]},
+{n:'Trimmer + Speedbar',d:'Noch kleinerer Anstellwinkel',T:13,
+ tail:1, cp:[[0,.25],[3,.25],[5,.2],[13,.2]], pitch:[[0,0],[3,0],[5,-7],[13,-7]], fold:0, sep:0, flow:[[0,1.4],[3,1.4],[5,1.8],[13,1.8]],
+ area:[[0,.55],[3,.55],[5,.5],[13,.5]], spd:[[0,.8],[3,.8],[5,.95],[13,.95]], pwr:[[0,.58],[3,.58],[5,.7],[13,.7]],
+ load:[[[0,.55],[3,.55],[5,.62]],[[0,.42],[3,.42],[5,.38]],[[0,.08],[3,.08],[5,.04]],[[0,.03]]], gust:[],
+ g:['Trimmer: OFFEN','Bremse: 0 %','Beschleuniger: [0,0],[3,0],[4.5,1]'],
+ cap:[[0,'Die Trimmer sind schon offen, der Reflex wirkt.'],[3,'Zusätzlich tritt der Pilot die Speedbar: Die vorderen Leinen werden verkürzt …'],[5,'… und der Anstellwinkel wird noch einmal kleiner. Das ist die schnellste Stellung.'],[8.5,'Ob und wie weit du bei offenen Trimmern beschleunigen darfst, steht im Handbuch deines Schirms.']]},
+{n:'Gekoppelt (PA)',d:'Speedbar öffnet die Trimmer',T:13,
+ tail:[[0,-.15],[2.5,-.15],[4.5,1],[11,1],[12.5,-.15]], cp:[[0,.42],[2.5,.42],[4.8,.2],[11,.2],[12.5,.42]], pitch:[[0,0],[2.5,0],[4.5,-7],[11,-7],[12.5,0]], fold:0, sep:0, flow:[[0,.5],[2.5,.5],[4.5,1.8],[11,1.8],[12.5,.5]],
+ area:[[0,1],[2.5,1],[4.8,.5],[11,.5],[12.5,1]], spd:[[0,.35],[2.5,.35],[4.8,.95],[11,.95],[12.5,.35]], pwr:[[0,.4],[2.5,.4],[4.8,.7],[11,.7],[12.5,.4]],
+ load:[[[0,.3],[2.5,.3],[4.8,.62],[11,.62],[12.5,.3]],[[0,.32],[2.5,.32],[4.8,.38],[11,.38],[12.5,.32]],[[0,.24],[2.5,.24],[4.8,.04],[11,.04],[12.5,.24]],[[0,.18],[2.5,.18],[4.8,.03],[11,.03],[12.5,.18]]], gust:[],
+ g:[function(t){return 'Trimmer: '+(k([[0,0],[2.5,0],[4,1],[11,1],[12,0]],t)>.5?'AUTOMATISCH OFFEN':'ZU')},'Bremse: 0 %','Beschleuniger: [0,0],[2.5,0],[3.5,1],[11,1],[12,0]'],
+ cap:[[0,'Bei manchen Schirmen sind Speedbar und Trimmer gekoppelt, bei Dudek heißt das PA – Power Attack System.'],[2.5,'Der Pilot tritt nur die Speedbar. Dabei öffnen sich automatisch die Trimmer …'],[4.8,'… und gleichzeitig wird der Anstellwinkel kleiner. Ein Fuß, zwei Wirkungen.'],[8.5,'Wie das System bei deinem Schirm genau arbeitet, steht im Handbuch.']]},
+{n:'Scherwind',d:'Reflex gegen klassisch',T:19,
+ tail:[[0,1],[9.6,1],[9.7,-.15],[19,-.15]], cp:[[0,.25],[9.6,.25],[9.7,.5],[19,.5]], wing:[[0,1],[9.2,1],[9.6,0],[9.8,0],[10.2,1]],
+ pitch:[[0,0],[2,0],[2.6,-8],[3.4,6],[4.2,0],[5,0],[5.6,9],[6.4,-5],[7.2,0],[12,0],[12.6,-8],[16.4,-8],[17.4,0]],
+ dx:[[0,0],[2,0],[2.8,-22],[4.4,0],[5,0],[5.8,18],[7.4,0]], dy:[[0,0],[2,0],[2.8,16],[4.4,0],[5,0],[5.8,-18],[7.4,0]],
+ fold:[[0,0],[12.2,0],[13,1],[16.2,1],[17.4,0]], sep:0, flow:1.4,
+ area:[[0,.55],[9.6,.55],[9.62,0],[19,0]],
+ load:[[[0,.55],[9.6,.55],[9.7,.12],[12.2,.08],[12.8,0],[16.6,0],[17.4,.12]],[[0,.42],[9.6,.42],[9.7,.16]],[[0,.08],[9.6,.08],[9.7,.4]],[[0,.03],[9.6,.03],[9.7,.38]]], gust:[2.2,5.2,12.3],
+ g:[function(t){return t<9.6?'Profil: REFLEX, Trimmer offen':'Profil: KLASSISCH, beschleunigt'},'Bremse: 0 %','Luft: Scherwind'],
+ cap:[[0,'Voller Reflexmodus. Jetzt fliegt der Schirm durch Scherwind und Thermikablösungen.'],[2.4,'Der Schirm wird versetzt und ändert seine Lage und Richtung …'],[5.2,'… aber das Profil bleibt als Fläche komplett gleich. Kein Einklappen.'],[9.6,'Zum Vergleich: ein klassischer Schirm, beschleunigt, in derselben Luft.'],[12.3,'Die entlastete Vorderkante klappt ein. Ein normaler Schirm ist hier klappfällig.'],[16,'Die Gefahr beim Reflex: Er fühlt sich so stabil an, dass man es übertreibt. Auch er hat Grenzen.']]},
+{n:'Offen + Bremse',d:'Der typische Fehler',T:13,
+ tail:[[0,1],[2,1],[4,-.7],[10.5,-.7],[12.5,1]], cp:[[0,.25],[2,.25],[4.5,.56],[10.5,.56],[12.5,.25]], pitch:[[0,0],[7,0],[7.6,-6],[8.6,-6],[10,0]], fold:[[0,0],[7.2,0],[8,1],[9.6,1],[10.8,0]], sep:[[0,0],[4,.6],[10.5,.6],[12,0]], flow:1.4,
+ load:[[[0,.55],[4,.25],[7.2,.25],[7.8,0],[10.4,0],[11,.25],[12.5,.55]],[[0,.42],[4,.3],[12.5,.42]],[[0,.08],[4,.3],[12.5,.08]],[[0,.03],[4,.25],[12.5,.03]]], gust:[6.6],
+ g:['Trimmer: OFFEN','Bremse: [2,0],[4,35],[10.5,35],[12.5,0]','Beschleuniger: AUS'],
+ cap:[[0,'Trimmer offen, Reflex aktiv. Jetzt zieht der Pilot an den Hauptbremsen …'],[2.5,'… die Hinterkante wird nach unten gezogen, der Reflex ist weg.'],[4.5,'Der Druckpunkt wandert nach hinten, die Strömung wird gestört.'],[6.8,'Im ungünstigen Fall klappt bei einer Böe die Vorderkante ein.'],[10.5,'Deshalb: im schnellen Flug Bremsen frei lassen und über TST steuern.']]},
+{n:'Klassisch + Speed',d:'Zum Vergleich',T:12,classic:1,
+ tail:-.15, cp:[[0,.42],[3,.52],[12,.52]], pitch:[[0,0],[3,-5],[6.4,-5],[7.2,-9],[9.6,-9],[10.8,0]], fold:[[0,0],[6.6,0],[7.4,1],[9.6,1],[10.8,0]], sep:0, flow:[[0,.6],[3,1.3],[12,1.3]],
+ load:[[[0,.3],[3,.1],[6.6,.06],[7.2,0],[10.4,0],[11,.1]],[[0,.32],[3,.14],[12,.14]],[[0,.24],[3,.4],[12,.4]],[[0,.18],[3,.4],[12,.4]]], gust:[6.2],
+ g:['Klassisches Profil','Bremse: 0 %','Beschleuniger: [0,0],[3,1]'],
+ cap:[[0,'Zum Vergleich ein klassischer Gleitschirm. Der Pilot tritt voll den Beschleuniger.'],[3,'Mit steigender Geschwindigkeit werden A- und B-Ebene entlastet, C und D tragen mehr.'],[6.3,'Eine Böe genügt: Die entlastete Vorderkante klappt ein, ein Frontklapper.'],[10.5,'Genau hier liegt der Vorteil des Reflexprofils.']]},
+{n:'Steigende Luft',d:'Auch Reflex hat Grenzen',T:12,
+ tail:[[0,1],[3,-.15],[12,-.15]], cp:[[0,.25],[3,.42],[6,.5],[9,.5],[11,.42]], pitch:[[0,0],[5,0],[6.5,16],[9,16],[10.5,0]], fold:0, sep:[[0,0],[5.8,0],[6.6,1],[9.2,1],[10.4,0]], flow:[[0,1.2],[3,.5],[6.5,.1],[9.2,.1],[10.5,.5]],
+ load:[[[0,.3]],[[0,.32]],[[0,.24],[6,.3]],[[0,.18],[6,.26]]], gust:[], up:[[0,0],[5,0],[6,1],[9,1],[10,0]],
+ g:['Trimmer: [0,1],[3,0]','Bremse: 0 %','Beschleuniger: AUS'],
+ cap:[[0,'Langsam unterwegs, Trimmer zu. Dann gerät der Schirm in kräftig steigende Luft.'],[5,'Die Aufwärtsströmung vergrößert den Anstellwinkel schlagartig.'],[6.6,'Die Strömung reißt oben ab: Auch ein Reflexschirm kann so in den Sackflug geraten.'],[10,'Hier verhält er sich kaum anders als ein klassischer Schirm.']]}
+];
+var cur=0,t0=0,raf=0;
+function gauge(str,t){ if(typeof str==='function')return str(t); return str.replace(/(Trimmer|Bremse|Beschleuniger): (\[[^A-Z]*)/,function(m,l,v){ var arr=JSON.parse('['+v+']'); var x=k(arr,t); if(l==='Bremse')return l+': '+Math.round(x)+' %'; return l+': '+(x>.5?(l==='Trimmer'?'OFFEN':'AN'):(l==='Trimmer'?'ZU':'AUS')); }); }
+function foil(tail,classic){ var up=[],lo=[],N=40,t=.15; for(var i=0;i<=N;i++){ var b=i/N, x=(1-Math.cos(b*Math.PI))/2; var yt=5*t*(.2969*Math.sqrt(x)-.126*x-.3516*x*x+.2843*x*x*x-.1036*x*x*x*x); var cam=.055*4*x*(1-x)*(classic?1:(1-.5*Math.max(tail,0))); if(x>.55){var s=(x-.55)/.45; cam+= (tail>=0? tail*.13 : tail*.12)*s*s;} up.push([x,cam+yt]); lo.push([x,cam-yt]); } return {up:up,lo:lo}; }
+function rot(p,c,a){ var s=Math.sin(a),co=Math.cos(a),dx=p[0]-c[0],dy=p[1]-c[1]; return [c[0]+dx*co-dy*s,c[1]+dx*s+dy*co]; }
+function toS(p,fold,pitch){ var x=OX+p[0]*C,y=OY-p[1]*C; if(fold>0&&p[0]<.33){ var h=[OX+.33*C,OY-.05*C]; var q=rot([x,y],h,-fold*2.1); x=q[0];y=q[1]; } var r=rot([x,y],[R.x,R.y],pitch*Math.PI/180); return r; }
+function lowerAt(F,xs){ for(var i=1;i<F.lo.length;i++){ if(F.lo[i][0]>=xs){ var a=F.lo[i-1],b=F.lo[i],u=(xs-a[0])/(b[0]-a[0]); return [xs,a[1]+(b[1]-a[1])*u]; } } return F.lo[F.lo.length-1]; }
+function draw(t){
+ var s=S[cur], tail=k(s.tail,t), cp=k(s.cp,t), pitch=k(s.pitch,t), fold=k(s.fold,t), sep=k(s.sep,t), flow=k(s.flow,t), up=s.up?k(s.up,t):0;
+ var F=foil(tail,s.classic); var pts=F.up.map(function(p){return toS(p,fold,pitch)}).concat(F.lo.slice().reverse().map(function(p){return toS(p,fold,pitch)}));
+ $('rsWing').setAttribute('d','M'+pts.map(function(p){return p[0].toFixed(1)+' '+p[1].toFixed(1)}).join('L')+'Z');
+ var dx=s.dx?k(s.dx,t):0, dy=s.dy?k(s.dy,t):0; $('rsAll').setAttribute('transform','translate('+dx.toFixed(1)+' '+dy.toFixed(1)+')');
+ $('rsWing').setAttribute('opacity',s.wing?k(s.wing,t).toFixed(2):1);
+ var ar=s.area!==undefined?k(s.area,t):-1, ae=$('rsArea'), ne=$('rsNeu');
+ if(ar>.02){ var au=F.up.filter(function(p){return p[0]<=ar}), al=F.lo.filter(function(p){return p[0]<=ar}).reverse(); var ap=au.concat(al).map(function(p){return toS(p,fold,pitch)}); ae.setAttribute('d','M'+ap.map(function(p){return p[0].toFixed(1)+' '+p[1].toFixed(1)}).join('L')+'Z'); ae.setAttribute('opacity',(.38*(s.wing?k(s.wing,t):1)).toFixed(2)); var te=toS([1,F.up[F.up.length-1][1]],0,pitch); ne.setAttribute('x',(te[0]-20).toFixed(1)); ne.setAttribute('y',(te[1]+30).toFixed(1)); ne.setAttribute('opacity',ar<.8?Math.min(1,(.8-ar)*5).toFixed(2):0); }
+ else { ae.setAttribute('d',''); ne.setAttribute('opacity',0); }
+ var hasM=s.spd!==undefined; $('rsMeter').setAttribute('opacity',hasM?1:(ar>.02?1:0)); if(hasM){ $('rsSpd').setAttribute('width',(148*k(s.spd,t)).toFixed(1)); $('rsPwr').setAttribute('width',(148*k(s.pwr,t)).toFixed(1)); }
+ [].forEach.call(document.querySelectorAll('#rsMeter>*'),function(el,i){ if(i<6) el.style.display=hasM?'':'none'; });
+ var L=''; for(var i=0;i<4;i++){ var ld=k(s.load[i],t), a=toS(lowerAt(F,ATT[i]),fold,pitch); var w=(1+ld*11).toFixed(1); var slack=ld<.02; var mx=(a[0]+R.x)/2+(slack?18:0), my=(a[1]+R.y)/2; L+='<path d="M'+a[0].toFixed(1)+' '+a[1].toFixed(1)+' Q'+mx.toFixed(1)+' '+my.toFixed(1)+' '+R.x+' '+R.y+'" stroke="'+(ld>.4?'#F25041':'#023341')+'" stroke-width="'+w+'" fill="none" opacity="'+(slack?.35:.85)+'"'+(slack?' stroke-dasharray="4 4"':'')+'/><text x="'+(a[0]-4)+'" y="'+(a[1]+20)+'" font-size="12" font-family="JetBrains Mono,monospace" fill="#023341">'+LET[i]+'</text>'; }
+ $('rsLines').innerHTML=L;
+ var c=toS([cp,.06],fold>.5?0:0,pitch); $('rsCPc').setAttribute('cx',c[0]);$('rsCPc').setAttribute('cy',c[1]-38); $('rsCPl').setAttribute('x1',c[0]);$('rsCPl').setAttribute('y1',c[1]-30);$('rsCPl').setAttribute('x2',c[0]);$('rsCPl').setAttribute('y2',c[1]-6); $('rsCPt').setAttribute('x',c[0]);$('rsCPt').setAttribute('y',c[1]-52);
+ $('rsHead').setAttribute('cx',R.x);$('rsHead').setAttribute('cy',R.y+12);$('rsBody').setAttribute('x1',R.x);$('rsBody').setAttribute('y1',R.y+20);$('rsBody').setAttribute('x2',R.x+3);$('rsBody').setAttribute('y2',R.y+44);
+ var fl='',off=(t*60*flow)%40; for(var j=0;j<6;j++){ var y=70+j*55, ang=up*-.35; fl+='<path d="M0 '+(y+(up?40:0))+' L640 '+(y+(up?40:0)+640*ang).toFixed(0)+'" stroke-dasharray="22 18" stroke-dashoffset="'+(-off).toFixed(1)+'"/>'; } $('rsFlow').innerHTML=fl;
+ var sp=''; if(sep>.02){ for(var m=0;m<3;m++){ var p=toS([.55+m*.15,.2],0,pitch); var r=8+m*3+Math.sin(t*6+m)*3; sp+='<path opacity="'+sep.toFixed(2)+'" d="M'+(p[0]-r)+' '+(p[1]-10)+' a'+r+' '+r+' 0 1 1 '+(r*1.6).toFixed(1)+' '+(-r*.6).toFixed(1)+'"/>'; } } $('rsSep').innerHTML=sp;
+ var g=$('rsGust'); var gt=-99; s.gust.forEach(function(x){ if(t>x-1&&t<x+1.4) gt=x; }); if(gt>-99){ var gx=OX-150+(t-(gt-1))*120; g.setAttribute('d','M'+gx+' 120 q10 -12 20 0 t20 0 t20 0'); g.setAttribute('opacity',1);} else g.setAttribute('opacity',0);
+ $('rsTitle').textContent=s.n.toUpperCase(); for(var q=0;q<3;q++) $('rsG'+(q+1)).textContent=gauge(s.g[q],t);
+ var cap=s.cap[0][1]; s.cap.forEach(function(c){ if(t>=c[0]) cap=c[1]; }); if($('rsCap').textContent!==cap) $('rsCap').textContent=cap;
+ $('rsBar').style.width=(Math.min(t/s.T,1)*100)+'%';
+}
+function loop(now){ if(!t0)t0=now; var t=(now-t0)/1000; var s=S[cur]; if(t>s.T+1.5){ t0=now; t=0; } draw(Math.min(t,s.T)); if(!window.__rsHold) raf=requestAnimationFrame(loop); }
+function play(i,u){ cur=i; t0=0; [].forEach.call(PN,function(p,j){p.classList.toggle('on',j===i)}); if(u&&history.replaceState&&PN[i]) history.replaceState(null,'','#'+PN[i].id); [].forEach.call(document.querySelectorAll('#rsBtns button'),function(b,j){b.classList.toggle('on',j===i)}); cancelAnimationFrame(raf); if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){ draw(S[i].T*.7); return; } raf=requestAnimationFrame(loop); }
+$('rsBtns').innerHTML=S.map(function(s,i){return '<button type="button"><b>'+(i+1)+'</b>'+s.n+'<br><span style="opacity:.7;text-transform:none;letter-spacing:0">'+s.d+'</span></button>'}).join('');
+[].forEach.call(document.querySelectorAll('#rsBtns button'),function(b,i){b.addEventListener('click',function(){play(i,1)})});
+window.addEventListener('hashchange',function(){ var h=location.hash.slice(1); [].forEach.call(PN,function(p,j){ if(p.id===h){ play(j); root.scrollIntoView({behavior:'smooth',block:'start'}); } }); }); window.__rsDraw=function(i,t){cancelAnimationFrame(raf);raf=0;cur=i;draw(t)}; window.__rsStop=function(){cancelAnimationFrame(raf)};
+var hs=location.hash.slice(1); [].forEach.call(PN,function(p,j){ if(p.id===hs){ cur=j; setTimeout(function(){root.scrollIntoView({block:'start'})},400); } }); [].forEach.call(PN,function(p,j){p.classList.toggle('on',j===cur)}); [].forEach.call(document.querySelectorAll('#rsBtns button'),function(b,j){b.classList.toggle('on',j===cur)}); draw(0); if('IntersectionObserver' in window){ var io=new IntersectionObserver(function(e){ if(e[0].isIntersecting){ play(cur); io.disconnect(); } }); io.observe(root); } else play(0);
+})();
+</script>
+</div>
