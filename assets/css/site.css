@@ -346,3 +346,55 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .sub-hero > img, .sub-hero > figure img { width: 100%; max-height: 620px; object-fit: cover; }
 .sub-hero--art { grid-template-columns: 1fr; }
 .sub-hero--art .d { font-size: clamp(44px, 6.4vw, 80px); }
+
+/* Ausbildungsweg im Aufbau der bisherigen Seite */
+.sub--wide .wrap { max-width: 1240px; }
+#weg-panel[hidden], #weg-result[hidden], #weg-hint[hidden] { display: none !important; }
+#weg:not(.ready) #weg-panel { display: none; }
+.wdev { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+.wdev__card { display: grid; align-content: start; gap: 8px; padding-bottom: 12px; border-bottom: 3px solid transparent; }
+.wdev__card.sel { border-bottom-color: var(--coral); }
+.wdev__card > button { display: grid; gap: 14px; justify-items: center; width: 100%; padding: 14px 14px 16px; background: var(--card); border: 0; color: var(--petrol); cursor: pointer; font: inherit; text-align: left; transition: background-color .2s; }
+.wdev__card > button:hover { background: #cdc8bb; }
+.wdev__card > button .k { justify-self: start; margin: 0; }
+.wdev__card > button img { width: 68%; aspect-ratio: 4 / 3; object-fit: contain; background: #fff; }
+.wdev__card:nth-child(3) > button img { object-fit: cover; width: 80%; }
+.wdev__state { justify-self: start; font-size: 12px; }
+.wdev__state .on, .sel .wdev__state .off { display: none; }
+.sel .wdev__state .on { display: inline; }
+.wdev__card h3 { font-size: clamp(26px, 2.6vw, 34px) !important; margin: 10px 0 0 !important; }
+.ewfx .wdev__card p { font-size: 14px; opacity: .75; margin: 0; }
+.ewfx .wlink { color: var(--coral); font-size: 14px; }
+.ewfx .wlink--caps { display: inline-block; color: var(--petrol); font-weight: 800; font-size: 14px; letter-spacing: .5px; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--petrol); padding-bottom: 10px; }
+.wdev__hint { margin-top: 18px; }
+.wpanel { background: var(--sand); border-top: 3px solid var(--coral); padding: clamp(22px, 3vw, 30px); margin: 18px 0 32px; }
+.ewfx .wpanel section { border-top: 0; padding: 18px 0; }
+.ewfx .wpanel section + section { border-top: 1px solid #02334126; }
+.wprior { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.wprior > button { display: grid; align-content: start; gap: 6px; text-align: left; font: inherit; color: inherit; background: transparent; border: 0; border-right: 1px solid #0233413D; border-bottom: 1px solid #0233413D; padding: 18px 12px 22px; cursor: pointer; }
+.wprior > button:hover { background: #F4EFE680; }
+.wprior > button[aria-pressed="true"] { border-bottom: 3px solid var(--coral); }
+.wprior > button .k { color: var(--coral); margin: 0; }
+.wprior > button h3 { margin: 0 !important; }
+.ewfx .wprior > button p { font-size: 14px; opacity: .75; margin: 0; }
+#weg-result h2 { margin-bottom: 22px; }
+.wstats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; background: var(--petrol); color: var(--cream); padding: 22px 18px; margin: 16px 0 14px; }
+.wstat .k { color: #F4EFE6B3; margin: 0 0 6px !important; font-size: 11px; }
+.wstat b { display: block; font-family: var(--display); font-weight: 400; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.05; }
+.wstat small { font-size: 13px; color: #F4EFE6CC; }
+.wsteps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin: 28px 0 8px; }
+.wstep .k { color: var(--coral); margin-bottom: 6px !important; }
+.ewfx .wanr { margin-top: 24px; }
+.ewfx .wanr h3 { margin-bottom: 4px; }
+.wacc { margin-top: 18px; }
+.ewfx .wacc details { border-bottom: 1px solid #0233413D; }
+.ewfx .wacc summary { font-weight: 500; font-size: 20px; padding: 18px 40px 18px 0; }
+.ewfx .wacc summary::after { color: var(--petrol); font-weight: 700; }
+.ewfx .wacc ul.dash { padding-bottom: 14px; }
+#weg-result > p:last-of-type { margin-top: 20px; }
+@media (max-width: 900px) {
+  .wdev { grid-template-columns: 1fr; }
+  .wprior { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wstats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wsteps { grid-template-columns: 1fr; gap: 18px; }
+}

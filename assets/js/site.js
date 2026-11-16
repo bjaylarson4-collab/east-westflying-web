@@ -154,25 +154,40 @@
     });
   }
 
-  // Ausbildungsweg: Gerät + Vorbildung wählen, passende Inhalte zeigen
+  // Ausbildungsweg: Gerät + Vorbildung wählen, passende Inhalte zeigen (wie auf der bisherigen Seite)
   var tw = $('#weg');
   if (tw) {
     var dev = null, pri = null, q = new URLSearchParams(location.search);
     var devs = $$('[data-device]', tw), pris = $$('[data-prior]', tw);
+    var panel = $('#weg-panel'), row = $('.wdev', tw), home = document.createComment('weg-panel');
+    panel.parentNode.insertBefore(home, panel);
     if (devs.some(function (d) { return d.dataset.device === q.get('device'); })) dev = q.get('device');
     if (pris.some(function (d) { return d.dataset.prior === q.get('prior'); })) pri = q.get('prior');
     var mail = $('#weg-mail'), mailBase = mail && mail.getAttribute('href');
+    var place = function () {
+      var card = dev && $('[data-card="' + dev + '"]', tw);
+      var oneCol = row && getComputedStyle(row).gridTemplateColumns.split(' ').length < 2;
+      if (card && oneCol) card.parentNode.insertBefore(panel, card.nextSibling);
+      else home.parentNode.insertBefore(panel, home.nextSibling);
+    };
     var wupd = function (sync) {
       tw.classList.add('ready');
-      $('#weg-prior').hidden = !dev;
+      panel.hidden = !dev;
       $('#weg-result').hidden = !(dev && pri);
-      devs.forEach(function (d) { d.setAttribute('aria-pressed', d.dataset.device === dev ? 'true' : 'false'); });
+      var hint = $('#weg-hint'); if (hint) hint.hidden = !!dev;
+      devs.forEach(function (d) {
+        var on = d.dataset.device === dev;
+        d.setAttribute('aria-pressed', on ? 'true' : 'false');
+        d.setAttribute('aria-expanded', on ? 'true' : 'false');
+        d.parentNode.classList.toggle('sel', on);
+      });
       pris.forEach(function (d) { d.setAttribute('aria-pressed', d.dataset.prior === pri ? 'true' : 'false'); });
       $$('[data-case]', tw).forEach(function (n) { n.hidden = !(dev && pri && (' ' + n.dataset.case + ' ').indexOf(' ' + dev + '-' + pri + ' ') > -1); });
       if (mail && dev && pri) {
-        var dl = $('[data-device="' + dev + '"] h3', tw).textContent, pl = $('[data-prior="' + pri + '"] h3', tw).textContent;
+        var dl = $('[data-card="' + dev + '"] h3', tw).textContent, pl = $('[data-prior="' + pri + '"] h3', tw).textContent;
         mail.setAttribute('href', mailBase.replace('subject=Mein%20Ausbildungsweg', 'subject=' + encodeURIComponent('Mein Ausbildungsweg – ' + dl + ' / ' + pl)));
       }
+      place();
       if (sync !== false && history.replaceState) {
         var u = new URL(location.href);
         dev ? u.searchParams.set('device', dev) : u.searchParams.delete('device');
@@ -180,8 +195,9 @@
         history.replaceState(null, '', u.href);
       }
     };
-    devs.forEach(function (d) { d.addEventListener('click', function () { dev = dev === d.dataset.device ? null : d.dataset.device; wupd(); if (dev) $('#weg-prior').scrollIntoView({ block: 'nearest' }); }); });
-    pris.forEach(function (d) { d.addEventListener('click', function () { pri = d.dataset.prior; wupd(); $('#weg-result').scrollIntoView({ block: 'start' }); }); });
+    devs.forEach(function (d) { d.addEventListener('click', function () { dev = dev === d.dataset.device ? null : d.dataset.device; wupd(); }); });
+    pris.forEach(function (d) { d.addEventListener('click', function () { pri = d.dataset.prior; wupd(); }); });
+    var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(place, 120); });
     wupd(false);
   }
 })();
