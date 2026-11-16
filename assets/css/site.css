@@ -199,7 +199,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 
 /* Unterseite: Fußstart */
 .sub { padding: 120px var(--pad) 0; }
-.sub .wrap { max-width: 1020px; }
+.sub .wrap { max-width: var(--max); }
 .crumbs { display: flex; flex-wrap: wrap; gap: 8px 22px; padding-bottom: 22px; border-bottom: 1px solid #02334126; }
 .crumbs a { font-family: var(--mono); font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; text-decoration: none; }
 .crumbs a:hover { color: var(--coral); }
@@ -348,7 +348,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .sub-hero--art .d { font-size: clamp(44px, 6.4vw, 80px); }
 
 /* Ausbildungsweg im Aufbau der bisherigen Seite */
-.sub--wide .wrap { max-width: 1240px; }
+.sub--wide .wrap { max-width: var(--max); }
 #weg-panel[hidden], #weg-result[hidden], #weg-hint[hidden] { display: none !important; }
 #weg:not(.ready) #weg-panel { display: none; }
 .wdev { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
