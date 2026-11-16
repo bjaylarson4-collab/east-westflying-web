@@ -1,0 +1,19 @@
+# Adressen der bisherigen WordPress-Seite, die als Vorlage gesichert werden (Ordner alt/)
+motorschirm-trike
+motorschirm-trike-doppelsitzer
+popopropeller-podcast
+reflexprofil-motorschirm
+propeller-motorschirm
+motorschirm-ausbildungsweg
+dulv-formulare-motorschirm
+gleitschirm-mit-motor
+ueber-mich
+termine-motorschirmfliegen-in-der-toskana
+ewf-one
+kontakt
+sitemap
+impressum
+datenschutzerklaerung
+datenschutz
+agb
+2024/06/26/popopropellerpodcast-smalltalk-aus-der-toskana
