@@ -13,6 +13,14 @@
 	}
 	@assets path /assets/*
 	header @assets Cache-Control "public, max-age=604800"
+	# Alte WordPress-Adressen auf die neuen Seiten umleiten
+	redir /2024/06/26/popopropellerpodcast-smalltalk-aus-der-toskana/ /popopropeller-podcast/ 301
+	redir /datenschutz/ /datenschutzerklaerung/ 301
+	redir /agb/ https://shop.east-westflying.de/policies/terms-of-service 301
+	@altsitemaps path /sitemap_index.xml /page-sitemap.xml /post-sitemap.xml /category-sitemap.xml /local-sitemap.xml
+	redir @altsitemaps /sitemap.xml 301
+	@altwp path /category/* /tag/* /author/* /feed/* /2024/* /2025/* /wp-login.php /wp-admin/*
+	redir @altwp / 301
 	# Besucherstatistik (Umami, ohne Cookies): Zählskript und Zähladresse
 	# laufen über die eigene Adresse und werden an den Umami-Container weitergereicht
 	reverse_proxy /s.js ewf-umami:3000

@@ -3,7 +3,7 @@ name: Bilder holen
 # Läuft, wenn tools/bilder.txt geändert wird, oder per Hand unter "Actions".
 on:
   push:
-    paths: ["tools/bilder.txt", ".github/workflows/bilder.yml"]
+    paths: ["tools/bilder.txt", "tools/dateien.txt", ".github/workflows/bilder.yml"]
   workflow_dispatch:
 
 permissions:
@@ -29,10 +29,19 @@ jobs:
             esac
           done
           ls -la assets/img
+      - name: Dateien laden
+        run: |
+          mkdir -p assets/files
+          grep -v '^\s*#' tools/dateien.txt | grep -v '^\s*$' | while IFS='|' read -r ziel quelle; do
+            ziel=$(echo "$ziel" | xargs); quelle=$(echo "$quelle" | xargs)
+            [ -f "assets/files/$ziel" ] && continue
+            curl -fsSL -A "Mozilla/5.0" "$quelle" -o "assets/files/$ziel"
+          done
+          ls -la assets/files
       - name: Hochladen
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/img
+          git add assets/img assets/files
           git diff --cached --quiet || git commit -m "Bilder aus tools/bilder.txt geholt"
           git push

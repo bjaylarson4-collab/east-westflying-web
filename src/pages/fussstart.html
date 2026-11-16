@@ -17,10 +17,7 @@
       <p>Motor auf dem Rücken, Start aus eigener Kraft: Der Fußstart ist die ursprünglichste und mobilste Art, Motorschirm zu fliegen. Deinen Paramotor-Schein machst du bei mir persönlich und 1:1 am Flugplatz Hodenhagen nördlich von Hannover.</p>
       <p>Ein Fluglehrer. Ein Schüler. Zur selben Zeit.</p>
     </div>
-    <div class="orbit" aria-hidden="true">
-      <div class="orbit__blob">EWF<br>ONE</div>
-      <svg viewBox="0 0 100 100"><ellipse class="ring" cx="50" cy="50" rx="48" ry="35" transform="rotate(-25 50 50)"/><ellipse class="ring" cx="50" cy="50" rx="35" ry="48" transform="rotate(35 50 50)"/><g transform="rotate(-25 50 50)"><g><animateMotion dur="18s" repeatCount="indefinite" path="M2,50 A48,35 0 1,1 98,50 A48,35 0 1,1 2,50"/><g transform="rotate(25)"><path d="M-7 -11Q0 -15 7 -11" fill="none" stroke="#F25041" stroke-width="1.6" stroke-linecap="round"/><path d="M-6.6 -10.6L-.5 -2M6.6 -10.6L.5 -2" stroke="#023341" stroke-width=".3"/><circle cx="-1.6" cy="0" r="2.6" fill="#F4EFE6" stroke="#023341" stroke-width=".45"/><ellipse class="pp" cx="-1.6" cy="0" rx=".45" ry="2.3" fill="#023341"/><circle cx=".6" cy="-2.6" r=".75" fill="#023341"/><path d="M.6 -1.8L.9 1L.2 3M.9 1L1.9 2.8" fill="none" stroke="#023341" stroke-width=".55" stroke-linecap="round" stroke-linejoin="round"/></g></g></g></svg>
-    </div>
+    {{INC:orbit}}
   </section>
 
   <div class="ewfx">
@@ -100,36 +97,12 @@
 
   </div>
 
-  <section class="one" id="ewf-one">
-    <p class="k">EWF_ONE / Das Ausbildungsmodell</p>
-    <h2 class="d">Dreißig Tage.<br><span class="coral">Ganz bei dir.</span></h2>
-    <p>Keine anderen Flugschüler in dieser Phase. Ein persönlicher, konzentrierter Rahmen entlang deines Ausbildungswegs, nicht eines Gruppentakts.</p>
-    <div class="one__nums">
-      <div><span class="k">01</span><div class="d">30</div><p>aufeinanderfolgende Tage</p><p>Eine exklusive Phase mit einem Schüler und einem Fluglehrer.</p></div>
-      <div><span class="k">02</span><div class="d">bis 50</div><p>Praxisstunden als Obergrenze</p><p>Eine Obergrenze, kein zugesicherter Stundenumfang.</p></div>
-      <div><span class="k">03</span><div class="d">bis 40</div><p>Theoriestunden als Obergrenze</p><p>Passend zu deinem tatsächlichen Ausbildungsweg.</p></div>
-    </div>
-    <p class="caps">Wetterabhängig · Keine Lizenzgarantie · Unterrichtsgebühr auf Anfrage</p>
-    <small>Fluggerät und Ausrüstung wählen und kaufen wir gemeinsam vor der Ausbildung. Sie sind nicht in der Unterrichtsgebühr enthalten. Für die Grundausbildung stellen wir den Schul-Xcitor und Trainer bereit; danach fliegst du mit deiner eigenen Ausrüstung. Für den Doppelsitzer-Weg benötigst du einen eigenen Xcitor.</small>
-    <small>Sicherheit, Wetter, Tagesform und sinnvoller Lernfortschritt bestimmen den Ablauf. Nicht genutzte Stunden des Hauptkurses werden nicht erstattet. Eine Lizenz kann nicht garantiert werden; sie setzt die erforderlichen Leistungen und Prüfungen voraus.</small>
-    <a class="btn" href="{{X:ewf-one}}">→ Zeig mir mehr Details</a>
-  </section>
+  {{INC:one}}
 
-  <section class="try" id="ewf-schnuppertraining">
-    <p class="k">Vor jedem Kurs / Schnuppertraining · 399 €</p>
-    <h2 class="d">Erst erleben.<br><span class="coral">Dann entscheiden.</span></h2>
-    <p>Vor jeder Ausbildung steht ein eigenständiges Schnuppertraining: Wir lernen die Ausrüstung kennen, üben den Umgang mit dem Schirm und fliegen gemeinsam, wenn Wetter und Sicherheit es zulassen.</p>
-    <p>Wie lange wir unterwegs sind, bestimmen Wetter, Tagesform und das, was für dich wirklich sinnvoll ist. Es gibt keine vorab festgelegte Dauer. Wir lernen uns kennen und entscheiden beide, ob eine Ausbildung zusammen passt.</p>
-    <p>Die 399 € bezahlst du für das Training und den Flug an diesem Tag. Kommt die Ausbildung zustande, rechne ich dir den Betrag vollständig auf den Kurspreis an.</p>
-    <a class="btn" href="mailto:info@east-westflying.de?subject=Anfrage%20Schnuppertraining">Schnuppertraining anfragen ↗</a>
-    <p class="hint">Öffnet dein E-Mail-Programm. Es wird nichts automatisch versendet. Adresse: info@east-westflying.de</p>
-  </section>
+  {{INC:try}}
 
-  <div class="sub-foot">
-    <span class="d">East—Westflying</span>
-    <a class="link" href="{{HOME}}">Zur Startseite</a>
-    <a class="link" href="{{X:kontakt}}">Kontakt</a>
-  </div>
+  {{INC:subfoot}}
 
 </div>
+<script type="application/json" id="ewf-data">{"rules": [{"all": ["knie"], "t": "Eher Trike", "x": "Wenn Knie oder Rücken nicht mitmachen, ist das Einsitzer-Trike die entspanntere Wahl: Du startest im Sitzen auf Rädern. Sprich mich gern an."}, {"all": ["pax"], "none": ["fit"], "t": "Schau dir das Doppelsitzer-Trike an", "x": "Mit dem Doppelsitzer-Trike nimmst du am einfachsten jemanden mit. Tandem im Fußstart ist zwar nicht ausgeschlossen, aber deutlich komplizierter: Meist brauchst du dafür einen stärkeren Motor und/oder einen größeren Schirm."}, {"all": ["pax"], "any": ["fit", "mobil"], "t": "Fußstart passt", "x": "Mobil, kompakt und ursprünglich: Der Fußstart ist genau dein Ding. Jemanden mitnehmen geht im Fußstart grundsätzlich auch, ist aber deutlich komplizierter: Meist brauchst du dafür einen stärkeren Motor und/oder einen größeren Schirm. Einfacher geht das mit dem Doppelsitzer-Trike."}, {"any": ["fit", "mobil"], "t": "Fußstart passt", "x": "Mobil, kompakt und ursprünglich: Der Fußstart ist genau dein Ding."}], "vals": [[["40", "Starts und Landungen (mindestens)"], ["4", "Flugtage (mindestens)"], ["3", "Überlandflüge, je 1 h oder 30 km"]], [["20", "Starts und Landungen (mindestens)"], ["2", "Flugtage (mindestens)"], ["3", "Überlandflüge, je 1 h oder 30 km"]], [["40", "Starts und Landungen (mindestens)"], ["3", "Überlandflüge, je 1 h oder 30 km"], ["?", "Anrechnung klären wir persönlich"]]]}</script>
 </main>

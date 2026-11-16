@@ -289,3 +289,60 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
   .marquee div, .orbit .pp { animation: none; } .btn, .cardx, .frame { transition: none; transform: none; }
   .orbit animateMotion { display: none; }
 }
+
+/* Ausbildungsweg: Auswahl Gerät und Vorbildung */
+.pick { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.pick > button { display: grid; gap: 8px; align-content: start; text-align: left; font: inherit; color: inherit; background: var(--sand); border: 2px solid transparent; padding: 0 0 18px; cursor: pointer; transition: border-color .2s, background-color .2s; }
+.pick > button:hover { border-color: var(--card); }
+.pick > button[aria-pressed="true"] { border-color: var(--petrol); background: #fff; }
+.pick > button > * { margin: 0 18px; }
+.pick > button img { margin: 0; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: #fff; }
+.pick > button .k { margin-top: 14px; margin-bottom: 0; color: var(--coral); }
+.pick > button h3 { margin-bottom: 0; }
+.pick > button p { margin-bottom: 0; font-size: 15px; }
+.pick--txt > button { padding: 18px 0; }
+.pick--txt > button .k { margin-top: 0; }
+.ewfx .more { font-weight: 700; text-decoration: none; }
+#weg:not(.ready) [data-case], #weg:not(.ready) #weg-prior, #weg:not(.ready) #weg-result { display: none; }
+#weg [hidden] { display: none !important; }
+.steps { display: grid; gap: 14px; margin-top: 28px; }
+.step { background: #fff; border: 2px solid var(--petrol); padding: clamp(20px, 3vw, 28px); }
+.step .n { font-family: var(--display); font-size: clamp(40px, 5vw, 56px); line-height: 1; color: var(--coral); float: right; margin-left: 16px; }
+.box-l { background: var(--sand); padding: 20px 22px; margin-top: 14px; }
+.box-l p:last-child { margin-bottom: 0; }
+.ewfx ul.dash { margin: 0 0 12px; max-width: 720px; }
+.ewfx ul.dash li { padding-left: 20px; position: relative; margin-bottom: 6px; }
+.ewfx ul.dash li::before { content: "–"; position: absolute; left: 0; color: var(--coral); }
+
+/* Unterseiten: allgemeine Bausteine */
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(20px, 3vw, 36px); align-items: start; }
+.two img, .gal img { width: 100%; object-fit: cover; }
+.two figure img { aspect-ratio: 3 / 2; }
+.ewfx .two h3 { margin-top: 18px; } .ewfx .two h3:first-child { margin-top: 0; }
+.gal { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px; margin-top: 22px; }
+.gal img { aspect-ratio: 4 / 3; }
+.gal figcaption { font-size: 13px; margin-top: 6px; opacity: .8; }
+.widget { margin: 24px 0; }
+.ewfx ol.num { margin: 0 0 12px; padding-left: 22px; max-width: 720px; } .ewfx ol.num li { margin-bottom: 6px; }
+.ewfx .disc { background: var(--sand); padding: 20px 22px; font-size: 14px; margin-top: 22px; }
+.ewfx .disc p { max-width: none; }
+.ewfx .src { font-size: 13px; opacity: .75; }
+.ewfx .dl { display: inline-block; margin: 6px 0 14px; padding: 13px 18px; background: var(--petrol); color: #fff !important; text-decoration: none; font-weight: 700; }
+.ewfx .codes { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 14px 0; }
+.ewfx .codes div { background: var(--sand); padding: 14px; } .ewfx .codes b { font-family: var(--display); font-weight: 400; font-size: 26px; display: block; }
+.ewfx .codes small { font-size: 13px; }
+.ewfx .seg { margin-bottom: 18px; }
+.ewfx .ep[hidden] { display: none; }
+.ewfx .ep p.desc { margin: 4px 0 0; font-size: 14px; }
+.ewfx .ep .lnk { font-size: 14px; font-weight: 700; }
+.legal h2 { font-size: clamp(28px, 4vw, 40px) !important; }
+.legal p, .legal li { max-width: 760px; }
+.cal { margin-top: 18px; }
+.cal iframe { width: 100%; height: 760px; border: 0; background: #fff; margin-top: 10px; }
+.chat-btn { position: fixed; right: 18px; bottom: 18px; z-index: 90; background: var(--petrol); color: var(--cream); border: 2px solid var(--cream); font: 700 15px var(--text); padding: 12px 18px; cursor: pointer; box-shadow: 0 6px 20px #0233414D; }
+.chat-btn:hover { background: var(--coral); }
+.chat-btn small { display: block; font-weight: 400; font-size: 11px; opacity: .8; }
+.sitemap-list li { padding: 10px 0; border-bottom: 1px solid #02334126; }
+.sub-hero > img, .sub-hero > figure img { width: 100%; max-height: 620px; object-fit: cover; }
+.sub-hero--art { grid-template-columns: 1fr; }
+.sub-hero--art .d { font-size: clamp(44px, 6.4vw, 80px); }

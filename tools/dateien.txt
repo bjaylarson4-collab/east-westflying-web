@@ -1,0 +1,2 @@
+# Dateien (z. B. PDF) von der bisherigen Seite. Format: Zieldatei | Quelle
+dulv-aufnahmeantrag-flugschule.pdf | https://east-westflying.de/wp-content/uploads/2022/01/aufnahmeantrag_flugschulen_werben_mitglieder_22-1.pdf
