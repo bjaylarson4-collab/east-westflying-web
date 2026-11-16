@@ -13,7 +13,19 @@
 	}
 	@assets path /assets/*
 	header @assets Cache-Control "public, max-age=604800"
+	# Besucherstatistik (Umami, ohne Cookies): Zählskript und Zähladresse
+	# laufen über die eigene Adresse und werden an den Umami-Container weitergereicht
+	reverse_proxy /s.js ewf-umami:3000
+	reverse_proxy /api/s ewf-umami:3000
+	reverse_proxy /api/send ewf-umami:3000
 	file_server
+}
+
+# Auswertung der Besucherstatistik (Anmeldung nötig).
+# Voraussetzung: A-Record statistik.east-westflying.de bei webgo auf 46.224.139.195
+statistik.east-westflying.de {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy ewf-umami:3000
 }
 
 # Testadresse, für Suchmaschinen gesperrt

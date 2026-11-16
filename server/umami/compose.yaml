@@ -1,0 +1,48 @@
+# Besucherstatistik Umami (ohne Cookies) mit eigener Datenbank.
+# Wird von server/update.sh gestartet. Passwörter stehen nur auf dem Server
+# in /opt/ewf/umami/.env (APP_SECRET, DB_PASSWORD), nie im Repository.
+# Läuft im Docker-Netz des Webservers (ewf_default), damit ewf-caddy Umami erreicht.
+
+services:
+  umami:
+    image: ghcr.io/umami-software/umami:latest
+    container_name: ewf-umami
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://umami:${DB_PASSWORD}@ewf-umami-db:5432/umami
+      APP_SECRET: ${APP_SECRET}
+      TRACKER_SCRIPT_NAME: s.js
+      COLLECT_API_ENDPOINT: /api/s
+      DISABLE_TELEMETRY: "1"
+      DISABLE_UPDATES: "1"
+    depends_on:
+      db:
+        condition: service_healthy
+    mem_limit: 512m
+    networks: [web]
+
+  db:
+    image: postgres:16-alpine
+    container_name: ewf-umami-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - umami_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U umami -d umami"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    mem_limit: 256m
+    networks: [web]
+
+volumes:
+  umami_db:
+
+networks:
+  web:
+    name: ewf_default
+    external: true

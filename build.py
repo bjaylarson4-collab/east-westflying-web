@@ -12,6 +12,14 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 SITE = "https://east-westflying.de"
 
+# Besucherstatistik (Umami, ohne Cookies). Die ID steht in Umami unter
+# Einstellungen > Websites. Leer = Statistik aus.
+UMAMI_ID = ""
+UMAMI_DOMAINS = "east-westflying.de,www.east-westflying.de,neu.east-westflying.de"
+
+# Klicks, die als Anfrage gezählt werden (Name des Ereignisses in Umami)
+EVENTS = [("tel:", "Anruf"), ("mailto:", "E-Mail"), ("calendly.com", "Termin"), ("wa.me", "WhatsApp")]
+
 # slug = Adresse wie auf der bisherigen Seite ("" = Startseite)
 PAGES = [
     dict(slug="", src="home.html", ogtype="website",
@@ -54,6 +62,24 @@ def jsonld(page, body):
     return json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
 
 
+def track(doc):
+    """Zählskript einsetzen und Kontakt-Links als Ereignis markieren."""
+    if UMAMI_ID:
+        tag = (f'<script defer src="/s.js" data-website-id="{UMAMI_ID}" '
+               f'data-domains="{UMAMI_DOMAINS}"></script>\n</head>')
+        doc = doc.replace("</head>", tag, 1)
+
+    def mark(m):
+        a = m.group(0)
+        if "data-umami-event" in a:
+            return a
+        for needle, name in EVENTS:
+            if needle in m.group(1):
+                return a[:2] + f' data-umami-event="{name}"' + a[2:]
+        return a
+    return re.sub(r'<a\b[^>]*\bhref="([^"]*)"[^>]*>', mark, doc)
+
+
 def build(mode):
     out = ROOT / "dist" / mode
     shutil.rmtree(out, ignore_errors=True)
@@ -88,6 +114,7 @@ def build(mode):
         for k, v in rep.items():
             doc = doc.replace(k, v)
         doc = re.sub(r"\{\{X:([\w-]+)\}\}", lambda m: url(m.group(1)), doc)
+        doc = track(doc)
         left = re.findall(r"\{\{[^}]*\}\}", doc)
         assert not left, f"Platzhalter offen in {page['src']}: {left}"
         target = out / page["slug"] / "index.html"
