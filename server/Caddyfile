@@ -24,6 +24,108 @@
 	redir @altsitemaps /sitemap.xml 301
 	@altwp path /category/* /tag/* /author/* /feed/* /2024/* /2025/* /wp-login.php /wp-admin/*
 	redir @altwp / 301
+	# Alte WordPress-Adressen (Seiten und Shop-Produkte), erzeugt mit tools/redirects.py.
+	# In "route" gilt die Reihenfolge: erst genaue Adressen, dann ganze Bereiche.
+	route {
+		@alt1 path /motorschirm-ausbildung /motorschirm-ausbildung/ /ausbildungspreise /ausbildungspreise/ /motorschirm-performance-training /motorschirm-performance-training/ /termine/motorschirmausbildung-termine /termine/motorschirmausbildung-termine/ /termine/motorschirmausbildung-termine-2025 /termine/motorschirmausbildung-termine-2025/ /termine/termine_motorschirmschulung /termine/termine_motorschirmschulung/ /produkt/performancetraining /produkt/performancetraining/ /produkt/motorschirmausbildung-so-individuell-wie-du /produkt/motorschirmausbildung-so-individuell-wie-du/
+		redir @alt1 /motorschirm-ausbildungsweg/ 301
+		@alt2 path /fussstarter /fussstarter/
+		redir @alt2 /paramotor-ausbildung-fussstart/ 301
+		@alt3 path /xcitor /xcitor/ /120-kg-schein-erweiterung /120-kg-schein-erweiterung/
+		redir @alt3 /motorschirm-trike-doppelsitzer/ 301
+		@alt4 path /trike-2 /trike-2/
+		redir @alt4 /motorschirm-trike/ 301
+		@alt5 path /rundflug-motorschirm /rundflug-motorschirm/ /produkt/rundflug-mit-dem-motorschirm /produkt/rundflug-mit-dem-motorschirm/
+		redir @alt5 https://shop.east-westflying.de/products/rundflug-mit-einem-motorschirm 301
+		@alt6 path /downloads /downloads/
+		redir @alt6 /dulv-formulare-motorschirm/ 301
+		@alt7 path /das-team /das-team/
+		redir @alt7 /ueber-mich/ 301
+		@alt8 path /anfahrt-zum-flugplatz /anfahrt-zum-flugplatz/
+		redir @alt8 /kontakt/ 301
+		@alt9 path /east-westflying-shop /east-westflying-shop/ /warenkorb /warenkorb/ /mein-konto /mein-konto/ /kasse /kasse/ /versandarten /versandarten/ /termine/east-westflying-store-schwarmstedt /termine/east-westflying-store-schwarmstedt/ /produkt/syride-sysnav-xl /produkt/syride-sysnav-xl/ /produkt/syride-sysevolution /produkt/syride-sysevolution/
+		redir @alt9 https://shop.east-westflying.de/ 301
+		@alt10 path /widerrufsbelehrung /widerrufsbelehrung/
+		redir @alt10 https://shop.east-westflying.de/policies/refund-policy 301
+		@alt11 path /termine /termine/ /fliegen-meistern-durch-neuromentaltraining /fliegen-meistern-durch-neuromentaltraining/ /jordanien /jordanien/ /bilder-und-filme /bilder-und-filme/ /funk-navigation /funk-navigation/ /elementor-17173 /elementor-17173/ /startseite-neu-schule /startseite-neu-schule/ /xc-training-barssel-2019 /xc-training-barssel-2019/
+		redir @alt11 / 301
+		@alt12 path /termine/italien-toskana-last-minute /termine/italien-toskana-last-minute/ /termine/motorschirmfliegen-in-the-toskana /termine/motorschirmfliegen-in-the-toskana/ /produkt/motorschirmreise-in-die-toskana /produkt/motorschirmreise-in-die-toskana/ /produkt/motorschirmreise-begleitperson-toskana /produkt/motorschirmreise-begleitperson-toskana/
+		redir @alt12 /termine-motorschirmfliegen-in-der-toskana/ 301
+		@alt13 path /produkt/scout-paramotor-carbon /produkt/scout-paramotor-carbon/
+		redir @alt13 https://shop.east-westflying.de/products/scout-one-carbon 301
+		@alt14 path /produkt/scout-moster-atom-paramotor-carbon-enduro /produkt/scout-moster-atom-paramotor-carbon-enduro/
+		redir @alt14 https://shop.east-westflying.de/products/scout-one-enduro 301
+		@alt15 path /produkt/nvolo /produkt/nvolo/ /produkt-kategorie/nvolo-helme-und-headsets/nvolo-helme /produkt-kategorie/nvolo-helme-und-headsets/nvolo-helme/ /produkt-kategorie/nvolo/nvolo-helme /produkt-kategorie/nvolo/nvolo-helme/
+		redir @alt15 https://shop.east-westflying.de/collections/nvolo-helme 301
+		@alt16 path /produkt/nvolo-headsets-funk /produkt/nvolo-headsets-funk/
+		redir @alt16 https://shop.east-westflying.de/products/nvolo-headset 301
+		@alt17 path /produkt/nvolo-visiere /produkt/nvolo-visiere/
+		redir @alt17 https://shop.east-westflying.de/products/nvolo-visier 301
+		@alt18 path /produkt/nvolo-brillen /produkt/nvolo-brillen/
+		redir @alt18 https://shop.east-westflying.de/products/nvolo-flugbrille 301
+		@alt19 path /produkt/nvolo-kopfband-fuer-headsets /produkt/nvolo-kopfband-fuer-headsets/
+		redir @alt19 https://shop.east-westflying.de/products/nvolo-kopfbuegel 301
+		@alt20 path /produkt/nvolo-lynx-kompatible-headsets /produkt/nvolo-lynx-kompatible-headsets/ /produkt/icom /produkt/icom/ /produkt-kategorie/nvolo-helme-und-headsets/nvolo-headset /produkt-kategorie/nvolo-helme-und-headsets/nvolo-headset/
+		redir @alt20 https://shop.east-westflying.de/collections/helm-headsets-funk 301
+		@alt21 path /produkt/nvolo-funkgeraetekabel /produkt/nvolo-funkgeraetekabel/ /produkt/nvolo-radiokabel-mit-splitter-zur-verbindung-mit-dem-funkgeraet /produkt/nvolo-radiokabel-mit-splitter-zur-verbindung-mit-dem-funkgeraet/ /produkt/nvolo-intercom-cable-to-connect-two-headsets /produkt/nvolo-intercom-cable-to-connect-two-headsets/
+		redir @alt21 https://shop.east-westflying.de/collections/helm-kabel 301
+		@alt22 path /produkt/paramotor-parajet-maverick /produkt/paramotor-parajet-maverick/ /produkt/paramotor-parajet-maverick-atom80 /produkt/paramotor-parajet-maverick-atom80/
+		redir @alt22 https://shop.east-westflying.de/products/parajet-maverick-evo-1 301
+		@alt23 path /produkt/paramotor-parajet-maverick-2-atom-80 /produkt/paramotor-parajet-maverick-2-atom-80/
+		redir @alt23 https://shop.east-westflying.de/products/parajet-maverick-3 301
+		@alt24 path /produkt/custom-colors-parajet /produkt/custom-colors-parajet/ /produkt-kategorie/motoren-trikes/parajet /produkt-kategorie/motoren-trikes/parajet/
+		redir @alt24 https://shop.east-westflying.de/collections/parajet 301
+		@alt25 path /produkt/eclipse-atom80-by-fly-products /produkt/eclipse-atom80-by-fly-products/ /produkt/eclipse-moster-my22-by-fly-products /produkt/eclipse-moster-my22-by-fly-products/ /produkt-kategorie/motoren-trikes/fly_products /produkt-kategorie/motoren-trikes/fly_products/
+		redir @alt25 https://shop.east-westflying.de/collections/fly-products 301
+		@alt26 path /produkt/fresh-breeze-vittorazi-moster /produkt/fresh-breeze-vittorazi-moster/
+		redir @alt26 https://shop.east-westflying.de/collections/paramotoren 301
+		@alt27 path /produkt/off-grid-motorschirm-gasgriff /produkt/off-grid-motorschirm-gasgriff/
+		redir @alt27 https://shop.east-westflying.de/products/off-grid-aviation-gasgriff-paramotor 301
+		@alt28 path /produkt/dudek-cabrio /produkt/dudek-cabrio/
+		redir @alt28 https://shop.east-westflying.de/products/dudek-cabrio 301
+		@alt29 path /produkt/dudek-universal-1-1 /produkt/dudek-universal-1-1/ /produkt/dudek-universal-1-1-demo-sale /produkt/dudek-universal-1-1-demo-sale/
+		redir @alt29 https://shop.east-westflying.de/products/dudek-universal-1-1 301
+		@alt30 path /produkt/dudek-solo /produkt/dudek-solo/
+		redir @alt30 https://shop.east-westflying.de/products/dudek-solo-2 301
+		@alt31 path /produkt/nucleon-4 /produkt/nucleon-4/
+		redir @alt31 https://shop.east-westflying.de/products/dudek-nucleon-4 301
+		@alt32 path /produkt/dudek-hadron /produkt/dudek-hadron/ /produkt/dudek-hadron-sale /produkt/dudek-hadron-sale/ /produkt/pegasus_3 /produkt/pegasus_3/ /produkt/vantage-3 /produkt/vantage-3/
+		redir @alt32 https://shop.east-westflying.de/collections/motorschirme 301
+		@alt33 path /produkt/airone-pro-unique-single /produkt/airone-pro-unique-single/
+		redir @alt33 https://shop.east-westflying.de/products/airone-unique-single 301
+		@alt34 path /produkt/airone-pro-unique-tandem /produkt/airone-pro-unique-tandem/
+		redir @alt34 https://shop.east-westflying.de/products/airone-unique-tandem 301
+		@alt35 path /produkt/airone-pro-trike-phoenix-2 /produkt/airone-pro-trike-phoenix-2/
+		redir @alt35 https://shop.east-westflying.de/products/airone-phoenix-2 301
+		@alt36 path /produkt/atom-80-propeller-130m-original-vittorazi-propeller /produkt/atom-80-propeller-130m-original-vittorazi-propeller/ /produkt/h31f-125m-atom-80-original-vittorazi-propeller /produkt/h31f-125m-atom-80-original-vittorazi-propeller/
+		redir @alt36 https://shop.east-westflying.de/products/helix-propeller-vittorazi-atom-80 301
+		@alt37 path /produkt/helix-h30f-122m-l-gml-10-2 /produkt/helix-h30f-122m-l-gml-10-2/ /produkt/e-props-carbonpropeller-fuer-motorschirm-thor190-hf-getriebe-1283 /produkt/e-props-carbonpropeller-fuer-motorschirm-thor190-hf-getriebe-1283/
+		redir @alt37 https://shop.east-westflying.de/collections/propeller 301
+		@alt38 path /produkt/gin-gliders-rescue-cockpit /produkt/gin-gliders-rescue-cockpit/ /produkt/frontcontainer-fuer-rettungen /produkt/frontcontainer-fuer-rettungen/ /produkt/evo-cross /produkt/evo-cross/ /produkt/yeti-ul /produkt/yeti-ul/ /produkt/yeti-light /produkt/yeti-light/
+		redir @alt38 https://shop.east-westflying.de/collections/rettungsschirme 301
+		@alt39 path /produkt/concertina-compress-bag-2 /produkt/concertina-compress-bag-2/
+		redir @alt39 https://shop.east-westflying.de/products/gin-concertina-kompressionssack 301
+		@alt40 path /produkt/gin-gliders-flight-deck-classic /produkt/gin-gliders-flight-deck-classic/ /produkt/ppg-float /produkt/ppg-float/ /produkt/fast-packing-rucksack /produkt/fast-packing-rucksack/ /produkt/gin-gliders-soft-shackle /produkt/gin-gliders-soft-shackle/ /produkt/smart-case /produkt/smart-case/ /produkt/gin-gliders-g-wrap-schlauchtuch /produkt/gin-gliders-g-wrap-schlauchtuch/ /produkt-kategorie/ppgsmoke /produkt-kategorie/ppgsmoke/
+		redir @alt40 https://shop.east-westflying.de/collections/zubehoer 301
+		@alt41 path /produkt-kategorie/nvolo-helme-und-headsets/nvolo-brille /produkt-kategorie/nvolo-helme-und-headsets/nvolo-brille/
+		redir @alt41 https://shop.east-westflying.de/collections/helm-brillen 301
+		@alt42 path /produkt-kategorie/nvolo-helme-und-headsets/nvolo-visier /produkt-kategorie/nvolo-helme-und-headsets/nvolo-visier/ /produkt-kategorie/nvolo/nvolo-visier /produkt-kategorie/nvolo/nvolo-visier/
+		redir @alt42 https://shop.east-westflying.de/collections/helm-visiere 301
+		@alt43 path /produkt-kategorie/nvolo-zubehoer /produkt-kategorie/nvolo-zubehoer/
+		redir @alt43 https://shop.east-westflying.de/collections/helm-zubehoer-ersatzteile 301
+		redir /termine/motorschirmfliegen-in-der-toskana* /termine-motorschirmfliegen-in-der-toskana/ 301
+		redir /wp-content/uploads/* /dulv-formulare-motorschirm/ 301
+		redir /das-team/* /ueber-mich/ 301
+		redir /produkt/nvolo-* https://shop.east-westflying.de/collections/helme 301
+		redir /produkt-kategorie/nvolo* https://shop.east-westflying.de/collections/helme 301
+		redir /produkt-kategorie/ausruestung* https://shop.east-westflying.de/collections/zubehoer 301
+		redir /produkt-kategorie/motoren-trikes* https://shop.east-westflying.de/collections/paramotoren 301
+		redir /produkt-kategorie/helix-propeller* https://shop.east-westflying.de/collections/propeller 301
+		redir /produkt-kategorie/motorschirme* https://shop.east-westflying.de/collections/motorschirme 301
+		redir /produkt-kategorie/rettungen* https://shop.east-westflying.de/collections/rettungsschirme 301
+		redir /produkt-kategorie/* https://shop.east-westflying.de/ 301
+		redir /produkt/* https://shop.east-westflying.de/ 301
+	}
 	# Besucherstatistik (Umami, ohne Cookies): Zählskript und Zähladresse
 	# laufen über die eigene Adresse und werden an den Umami-Container weitergereicht
 	reverse_proxy /s.js ewf-umami:3000
